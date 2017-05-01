@@ -1,7 +1,31 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Team.create(name: 'Yankees')
+Team.create(name: 'Red Sox')
+Team.create(name: 'Blue Jays')
+Team.create(name: 'Orioles')
+Team.create(name: 'Rays')
+Team.create(name: 'Twins')
+Team.create(name: 'Royals')
+Team.create(name: 'White Sox')
+Team.create(name: 'Indians')
+Team.create(name: 'Tigers')
+Team.create(name: 'Astros')
+Team.create(name: 'Angels')
+Team.create(name: 'Athletics')
+Team.create(name: 'Rangers')
+Team.create(name: 'Mets')
+Team.create(name: 'Braves')
+Team.create(name: 'Marlins')
+Team.create(name: 'Nationals')
+Team.create(name: 'Phillies')
+Team.create(name: 'Brewers')
+Team.create(name: 'Cardinals')
+Team.create(name: 'Reds')
+Team.create(name: 'Cubs')
+Team.create(name: 'Pirates')
+Team.create(name: 'Dodgers')
+Team.create(name: 'Giants')
+Team.create(name: 'Diamondbacks')
+Team.create(name: 'Rockies')
+Team.create(name: 'Padres')
+
+puts 'All MLB teams seeded in DB'
