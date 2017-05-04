@@ -1,7 +1,13 @@
 <h1>Team Win Predictor</h1>
 <h3>Search for Team: </h3>
-<form>
-  Team Name:
-  <input type='text' name='teamname'>
-  <input type='submit' value='Submit'>
-</form>
+
+<%= form_tag(teams_path, method: :get) do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+
+<% @teams.each do |team| %>
+  <ul>
+    <li><%= team.name %> </li>
+  </ul>
+<% end %>
