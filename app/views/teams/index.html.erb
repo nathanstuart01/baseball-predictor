@@ -4,10 +4,16 @@
 <%= form_tag(teams_path, method: :get) do %>
   <%= text_field_tag :search, params[:search] %>
   <%= submit_tag 'Search', name: nil %>
+  <button><%= link_to 'Reset', teams_path, id: 'reset-btn' %></button>
 <% end %>
 
-<% @teams.each do |team| %>
-  <ul>
-    <li><%= team.name %> </li>
-  </ul>
+
+    <% @teams.each do |team| %>
+    <ul>
+      <li><%= team.name %> </li>
+    </ul>
+<% end %>
+
+<% if @teams.blank? %>
+  <h4>There are no teams containing the term <%= params[:search] %>, please try again</h4>
 <% end %>
