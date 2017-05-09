@@ -1,7 +1,6 @@
 class Team < ApplicationRecord
 
   def self.search(search)
-
     if search
       where(["name ILIKE ?","%#{search}%"])
     else
@@ -12,10 +11,11 @@ class Team < ApplicationRecord
 
 
   def self.teambattingwars
-    require 'csv'
-    teambattingwar = Array.new
-    CSV.foreach("teambattingwar.csv", "r:bom|utf-8") do |row|
-    teambattingwar << row[0,20]
+      require 'csv'
+      teambattingwar = Array.new
+      CSV.foreach("teambattingwar.csv", "r:bom|utf-8") do |row|
+      teambattingwar << row[0,20]
+    end
   end
 
   def self.team_sorter
@@ -23,21 +23,19 @@ class Team < ApplicationRecord
   end
 
   def self.team_batting_war_sorter
-    batting_wars = teambattingwar.map { |el| el[19] }
+    battingwar = teambattingwar.map { |el| el[19] }
   end
 
 
   def team_batting_wars_to_float
-
-    batting_wars_to_float = batting_wars.collect do |war|
+      battingwar_to_float = battingwar.collect do |war|
       war.to_f
+    end
    end
 
-      war.inject{ |sum, el| sum + el } /war.size
-      possibly puts result here?
+   def battingdata
+     battingdata = [teams, battingwar_to_float].transpose.to_h
+   end
 
-      now need to tie values to specific teams
-    end
-  end
 
 end
