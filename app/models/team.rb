@@ -37,5 +37,17 @@ class Team < ApplicationRecord
      battingdata = [teams, battingwar_to_float].transpose.to_h
    end
 
+   def cleararrays
+     teambattingwar.clear
+     teams.clear
+     battingwar.clear
+     battingwar_to_float.clear
+   end
+
+   def re_add_teams
+     teams.insert(0, unsortedteamdata[0])
+     teams.flatten
+   end
+
 
 end
