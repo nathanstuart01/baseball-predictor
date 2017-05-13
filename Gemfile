@@ -23,6 +23,9 @@ gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'smarter_csv'
+gem 'nokogiri'
+gem 'mechanize'
+gem 'watir'
 
 
 group :development, :test do
