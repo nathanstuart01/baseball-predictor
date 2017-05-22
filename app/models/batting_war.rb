@@ -16,7 +16,7 @@ class BattingWar < ApplicationRecord
 # will need to then get an array of all the team data for batting and pitching data, and call the following loop on each one
 
 def create_team_arrays_of_batting_data
-yankees, orioles, red_sox, blue_jays, rayswhite_sox, tigers, royals, twins, indians,
+yankees, orioles, red_sox, blue_jays, rays, white_sox, tigers, royals, twins, indians,
 mariners, astros, rangers, angels, athletics, phillies, mets, braves, marlins,
 nationals, cardinals, cubs, pirates, reds, brewers, dodgers, giants, rockies,
 diamondbacks, padres = Array.new(30, [])
