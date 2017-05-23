@@ -2,7 +2,11 @@
 
 <ul>
   <% @battingstats.each do |battingstat|  %>
-  <li> <%= battingstat.war %></li>
+  <li> <%= battingstat.batting_war %></li>
   <li> <%= battingstat.team_batting %></li>
 </ul>
 <% end %>
+
+<%= link_to "Pitching WARs", scraped_batting_wars_path %>
+
+<%= link_to 'Home', :root %>

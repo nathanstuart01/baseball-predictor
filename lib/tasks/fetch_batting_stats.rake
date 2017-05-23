@@ -59,6 +59,7 @@ namespace :fetch_batting_stats do
 
   desc "Turn Batting CSV file batting stats in hash of team key and war values and save to DB"
   task turn_batting_csv_into_batting_data: :environment do
+    require 'csv'
 
     @raw_csv_batting_data = Array.new
     @batting_teams = Array.new
@@ -84,35 +85,35 @@ namespace :fetch_batting_stats do
 
   desc "Save batting hash data into db"
   task batting_hash_into_db: :environment do
-    BattingStat.create(team_batting: @filtered_batting_data.keys[0], war: @filtered_batting_data.values[0])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[1], war: @filtered_batting_data.values[1])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[2], war: @filtered_batting_data.values[2])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[3], war: @filtered_batting_data.values[3])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[4], war: @filtered_batting_data.values[4])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[5], war: @filtered_batting_data.values[5])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[6], war: @filtered_batting_data.values[6])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[7], war: @filtered_batting_data.values[7])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[8], war: @filtered_batting_data.values[8])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[9], war: @filtered_batting_data.values[9])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[10], war: @filtered_batting_data.values[10])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[11], war: @filtered_batting_data.values[11])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[12], war: @filtered_batting_data.values[12])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[13], war: @filtered_batting_data.values[13])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[14], war: @filtered_batting_data.values[14])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[15], war: @filtered_batting_data.values[15])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[16], war: @filtered_batting_data.values[16])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[17], war: @filtered_batting_data.values[17])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[18], war: @filtered_batting_data.values[18])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[19], war: @filtered_batting_data.values[19])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[20], war: @filtered_batting_data.values[20])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[21], war: @filtered_batting_data.values[21])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[22], war: @filtered_batting_data.values[22])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[23], war: @filtered_batting_data.values[23])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[24], war: @filtered_batting_data.values[24])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[25], war: @filtered_batting_data.values[25])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[26], war: @filtered_batting_data.values[26])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[27], war: @filtered_batting_data.values[27])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[28], war: @filtered_batting_data.values[28])
-    BattingStat.create(team_batting: @filtered_batting_data.keys[29], war: @filtered_batting_data.values[29])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[0], batting_war: @filtered_batting_data.values[0])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[1], batting_war: @filtered_batting_data.values[1])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[2], batting_war: @filtered_batting_data.values[2])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[3], batting_war: @filtered_batting_data.values[3])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[4], batting_war: @filtered_batting_data.values[4])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[5], batting_war: @filtered_batting_data.values[5])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[6], batting_war: @filtered_batting_data.values[6])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[7], batting_war: @filtered_batting_data.values[7])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[8], batting_war: @filtered_batting_data.values[8])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[9], batting_war: @filtered_batting_data.values[9])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[10], batting_war: @filtered_batting_data.values[10])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[11], batting_war: @filtered_batting_data.values[11])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[12], batting_war: @filtered_batting_data.values[12])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[13], batting_war: @filtered_batting_data.values[13])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[14], batting_war: @filtered_batting_data.values[14])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[15], batting_war: @filtered_batting_data.values[15])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[16], batting_war: @filtered_batting_data.values[16])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[17], batting_war: @filtered_batting_data.values[17])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[18], batting_war: @filtered_batting_data.values[18])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[19], batting_war: @filtered_batting_data.values[19])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[20], batting_war: @filtered_batting_data.values[20])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[21], batting_war: @filtered_batting_data.values[21])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[22], batting_war: @filtered_batting_data.values[22])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[23], batting_war: @filtered_batting_data.values[23])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[24], batting_war: @filtered_batting_data.values[24])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[25], batting_war: @filtered_batting_data.values[25])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[26], batting_war: @filtered_batting_data.values[26])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[27], batting_war: @filtered_batting_data.values[27])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[28], batting_war: @filtered_batting_data.values[28])
+    BattingStat.create(team_batting: @filtered_batting_data.keys[29], batting_war: @filtered_batting_data.values[29])
   end
 end

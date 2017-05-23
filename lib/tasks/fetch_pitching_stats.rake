@@ -75,17 +75,14 @@ end
    end
 
    @pitching_teams = @raw_csv_pitching_data.map { |team| team[0] }
+
    @pitching_war_strings = @raw_csv_pitching_data.map { |war| war[17] }
 
-  @pitching_war_float = @pitching_war_strings.collect do |war|
+   @pitching_war_float = @pitching_war_strings.collect do |war|
      war.to_f
    end
 
    @filtered_pitching_data = [@pitching_teams, @pitching_war_float].transpose.to_h
-
-   puts @filtered_pitching_data
-
-
   end
 
   desc "Save pitching hash data into db"
