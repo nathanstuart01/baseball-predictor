@@ -1,0 +1,10 @@
+<h1>Current Pitching WARs</h1>
+
+<ul>
+  <% @pitchingstats.each do |pitchingstat|  %>
+  <li><%= pitchingstat.pitching_war %></li>
+  <li><%= pitchingstat.team_pitching %></li>
+</ul>
+<% end %>
+
+<%= link_to "Batting WARs", scraped_batting_wars_path %>

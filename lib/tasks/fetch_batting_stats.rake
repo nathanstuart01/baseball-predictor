@@ -80,7 +80,6 @@ namespace :fetch_batting_stats do
 
     @filtered_batting_data = [@batting_teams, @batting_war_float].transpose.to_h
 
-
   end
 
   desc "Save batting hash data into db"
@@ -115,8 +114,5 @@ namespace :fetch_batting_stats do
     BattingStat.create(team_batting: @filtered_batting_data.keys[27], war: @filtered_batting_data.values[27])
     BattingStat.create(team_batting: @filtered_batting_data.keys[28], war: @filtered_batting_data.values[28])
     BattingStat.create(team_batting: @filtered_batting_data.keys[29], war: @filtered_batting_data.values[29])
-
   end
-
-
 end

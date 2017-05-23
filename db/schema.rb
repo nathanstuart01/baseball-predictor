@@ -10,14 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511222717) do
+ActiveRecord::Schema.define(version: 20170523225155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "batting_stats", force: :cascade do |t|
+    t.string   "team_batting"
+    t.float    "batting_war"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "batting_wars", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "pitching_stats", force: :cascade do |t|
+    t.string   "team_pitching"
+    t.float    "pitching_war"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "pitching_wars", force: :cascade do |t|
@@ -27,10 +41,8 @@ ActiveRecord::Schema.define(version: 20170511222717) do
 
   create_table "teams", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.float    "batting_war"
-    t.float    "pitching_war"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
