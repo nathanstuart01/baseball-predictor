@@ -10,11 +10,16 @@
 
     <% @teams.each do |team| %>
     <ul>
-      <li><%= team.name %> </li>
+      <li><b><%= team.name %></b> </li>
+
+      <li>Team Batting War:<%= team.batting_stat ? team.batting_stat.batting_war : '' %> </li>
+      <br />
+      <li>Team Pitching War:<%= team.pitching_stat ? team.pitching_stat.pitching_war : '' %> </li>
+
+
     </ul>
 <% end %>
 
-    <% @teams
 
 <% if @teams.blank? %>
   <h4>There are no teams containing the term <%= params[:search] %>, please try again</h4>

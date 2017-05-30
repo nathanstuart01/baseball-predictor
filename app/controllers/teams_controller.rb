@@ -2,7 +2,10 @@ class TeamsController < ApplicationController
 
   def index
     @teams = Team.search(params[:search])
+
   end
+
+
 
   private
 
