@@ -24,7 +24,3 @@
 <% if @teams.blank? %>
   <h4>There are no teams containing the term <%= params[:search] %>, please try again</h4>
 <% end %>
-
-<%= link_to 'Pitching Wars', scraped_pitching_wars_path %>
-
-<%= link_to "Batting WARs", scraped_batting_wars_path %>

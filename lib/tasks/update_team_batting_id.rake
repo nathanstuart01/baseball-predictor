@@ -1,0 +1,35 @@
+namespace :update_team_batting_id do
+
+  desc "Update Team Batting War IDs to Match Team IDs"
+  task update_team_batting_id_in_db: :environment do
+    BattingStat.update(2, team_id:2)
+    BattingStat.update(3, team_id:6)
+    BattingStat.update(4, team_id:19)
+    BattingStat.update(5, team_id:26)
+    BattingStat.update(6, team_id:28)
+    BattingStat.update(7, team_id:7)
+    BattingStat.update(8, team_id:21)
+    BattingStat.update(9, team_id:12)
+    BattingStat.update(10, team_id:24)
+    BattingStat.update(11, team_id:1)
+    BattingStat.update(12, team_id:17)
+    BattingStat.update(13, team_id:11)
+    BattingStat.update(14, team_id:22)
+    BattingStat.update(15, team_id:13)
+    BattingStat.update(16, team_id:20)
+    BattingStat.update(17, team_id:3)
+    BattingStat.update(18, team_id:15)
+    BattingStat.update(19, team_id:5)
+    BattingStat.update(20, team_id:18)
+    BattingStat.update(21, team_id:16)
+    BattingStat.update(22, team_id:10)
+    BattingStat.update(23, team_id:14)
+    BattingStat.update(24, team_id:29)
+    BattingStat.update(25, team_id:9)
+    BattingStat.update(26, team_id:4)
+    BattingStat.update(27, team_id:8)
+    BattingStat.update(28, team_id:27)
+    BattingStat.update(29, team_id:25)
+    BattingStat.update(30, team_id:30)
+  end
+end

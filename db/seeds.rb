@@ -1,4 +1,4 @@
-Team.create(name: 'Yankees')
+#Team.create(name: 'Yankees')
 Team.create(name: 'Red Sox')
 Team.create(name: 'Blue Jays')
 Team.create(name: 'Orioles')
