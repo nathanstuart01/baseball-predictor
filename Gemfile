@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'nokogiri'
 gem 'rake'
+gem 'httparty'
 
 
 

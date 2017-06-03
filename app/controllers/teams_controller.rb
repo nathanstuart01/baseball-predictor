@@ -5,6 +5,10 @@ class TeamsController < ApplicationController
 
   end
 
+  def scores
+    render json: Team.scores
+  end
+
 
 
   private
