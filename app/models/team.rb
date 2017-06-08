@@ -13,7 +13,7 @@ class Team < ApplicationRecord
   end
 
   def self.scores
-   HTTParty.get("https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2017-06-03&hydrate=team,linescore(matchup,runners),flags,liveLookin,broadcasts(all),decisions,person,probablePitcher,stats,homeRuns,previousPlay,game(content(media(featured,epg),summary),tickets",
+   HTTParty.get("https://statsapi.mlb.com/api/v1/schedule?sportId=1",
               headers: {
                 "Content-type" => 'application/json'
               }).body
