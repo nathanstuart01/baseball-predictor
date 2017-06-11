@@ -6,7 +6,7 @@ class TeamsController < ApplicationController
   end
 
   def scores
-    render json: Team.scores
+    @game_info = Team.scores
   end
 
 

@@ -24,3 +24,5 @@
 <% if @teams.blank? %>
   <h4>There are no teams containing the term <%= params[:search] %>, please try again</h4>
 <% end %>
+
+<%= link_to 'Game Info', scores_path %>
