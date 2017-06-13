@@ -6,7 +6,9 @@ class TeamsController < ApplicationController
   end
 
   def scores
-    @game_info = Team.scores
+    binding.pry
+    @response = HTTParty.get("https://statsapi.mlb.com/api/v1/schedule?sportId=1")
+
   end
 
 
