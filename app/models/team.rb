@@ -1,4 +1,5 @@
 class Team < ApplicationRecord
+  include HTTParty
 
 
   has_one :pitching_stat
@@ -13,7 +14,11 @@ class Team < ApplicationRecord
   end
 
   def self.scores
-  HTTParty.get("https://statsapi.mlb.com/api/v1/schedule?sportId=1")
+  HTTParty.get("https://statsapi.mlb.com/api/v1/schedule?sportId=1",
+              headers: {
+                "Content-type" => 'application/json'
+                }).body
+
   end
 
 

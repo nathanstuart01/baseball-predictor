@@ -2,14 +2,15 @@ class TeamsController < ApplicationController
 
   def index
     @teams = Team.search(params[:search])
-
+    #   render json: Team.scores
+    #including this here rendered the json data I wanted
   end
 
   def scores
-    binding.pry
-    @response = HTTParty.get("https://statsapi.mlb.com/api/v1/schedule?sportId=1")
 
+    render json: Team.scores
   end
+
 
 
 
