@@ -2,13 +2,12 @@ class TeamsController < ApplicationController
 
   def index
     @teams = Team.search(params[:search])
-    #   render json: Team.scores
+    #@games = JSON.parse(Team.scores)
     #including this here rendered the json data I wanted
   end
 
-  def scores
-
-    render json: Team.scores
+  def game_info
+    @games = JSON.parse(Team.scores)
   end
 
 
