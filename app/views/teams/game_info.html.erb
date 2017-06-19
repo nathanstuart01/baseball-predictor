@@ -1,82 +1,17 @@
 
 <h3>Today's Matchups:</h3>
 
+<% i = 0 %>
+<% z = 1 %>
+<% x = @games["dates"][0]["games"].length %>
+<% while (i < x) do %>
 <ul>
-  <li>Game 1:
-    <ul><%= @games ? @games["dates"][0]["games"][0]["gameDate"] : "Game info loading" %> EST</ul>
-    <%= @games ? @games["dates"][0]["games"][0]["teams"]["home"]["team"]["name"] : "Game info loading..." %>
+  <li><b>Game <%=z %> :</b>
+    <%= @games ? @games["dates"][0]["games"][i]["teams"]["home"]["team"]["name"] : "Game info loading..." %>
       Vs.
-    <%= @games ? @games["dates"][0]["games"][0]["teams"]["away"]["team"]["name"] : "Game info loading..." %>
-
-  </li>
-  <li>Game 2:
-    <%= @games ? @games["dates"][0]["games"][1]["teams"]["home"]["team"]["name"] : "Game info loading..." %>
-      Vs.
-    <%= @games ? @games["dates"][0]["games"][1]["teams"]["away"]["team"]["name"] : "Game info loading..." %>
-  </li>
-  <li>Game 3:
-    <%= @games ? @games["dates"][0]["games"][2]["teams"]["home"]["team"]["name"] : "Game info loading..." %>
-      Vs.
-    <%= @games ? @games["dates"][0]["games"][2]["teams"]["away"]["team"]["name"] : "Game info loading..." %>
-  </li>
-  <li>Game 4:
-    <%= @games ? @games["dates"][0]["games"][3]["teams"]["home"]["team"]["name"] : "Game info loading..." %>
-      Vs.
-    <%= @games ? @games["dates"][0]["games"][3]["teams"]["away"]["team"]["name"] : "Game info loading..." %>
-  </li>
-  <li>Game 5:
-    <%= @games ? @games["dates"][0]["games"][4]["teams"]["home"]["team"]["name"] : "Game info loading..." %>
-      Vs.
-    <%= @games ? @games["dates"][0]["games"][4]["teams"]["away"]["team"]["name"] : "Game info loading..." %>
-  </li>
-  <li>Game 6:
-    <%= @games ? @games["dates"][0]["games"][5]["teams"]["home"]["team"]["name"] : "Game info loading..." %>
-      Vs.
-    <%= @games ? @games["dates"][0]["games"][5]["teams"]["away"]["team"]["name"] : "Game info loading..." %>
-  </li>
-  <li>Game 7:
-    <%= @games ? @games["dates"][0]["games"][6]["teams"]["home"]["team"]["name"] : "Game info loading..." %>
-      Vs.
-    <%= @games ? @games["dates"][0]["games"][6]["teams"]["away"]["team"]["name"] : "Game info loading..." %>
-  </li>
-  <li>Game 8:
-    <%= @games ? @games["dates"][0]["games"][7]["teams"]["home"]["team"]["name"] : "Game info loading..." %>
-      Vs.
-    <%= @games ? @games["dates"][0]["games"][7]["teams"]["away"]["team"]["name"] : "Game info loading..." %>
-  </li>
-  <li>Game 9:
-    <%= @games ? @games["dates"][0]["games"][8]["teams"]["home"]["team"]["name"] : "Game info loading..." %>
-      Vs.
-    <%= @games ? @games["dates"][0]["games"][8]["teams"]["away"]["team"]["name"] : "Game info loading..." %>
-  </li>
-  <li>Game 10:
-    <%= @games ? @games["dates"][0]["games"][9]["teams"]["home"]["team"]["name"] : "Game info loading..." %>
-      Vs.
-    <%= @games ? @games["dates"][0]["games"][9]["teams"]["away"]["team"]["name"] : "Game info loading..." %>
-  </li>
-  <li>Game 11:
-    <%= @games ? @games["dates"][0]["games"][10]["teams"]["home"]["team"]["name"] : "Game info loading..." %>
-      Vs.
-    <%= @games ? @games["dates"][0]["games"][10]["teams"]["away"]["team"]["name"] : "Game info loading..." %>
-  </li>
-  <li>Game 12:
-    <%= @games ? @games["dates"][0]["games"][11]["teams"]["home"]["team"]["name"] : "Game info loading..." %>
-      Vs.
-    <%= @games ? @games["dates"][0]["games"][11]["teams"]["away"]["team"]["name"] : "Game info loading..." %>
-  </li>
-  <li>Game 13:
-    <%= @games ? @games["dates"][0]["games"][12]["teams"]["home"]["team"]["name"] : "Game info loading..." %>
-      Vs.
-    <%= @games ? @games["dates"][0]["games"][12]["teams"]["away"]["team"]["name"] : "Game info loading..." %>
-  </li>
-  <li>Game 14:
-    <%= @games ? @games["dates"][0]["games"][13]["teams"]["home"]["team"]["name"] : "Game info loading..." %>
-      Vs.
-    <%= @games ? @games["dates"][0]["games"][13]["teams"]["away"]["team"]["name"] : "Game info loading..." %>
-  </li>
-  <li>Game 15:
-    <%= @games ? @games["dates"][0]["games"][14]["teams"]["home"]["team"]["name"] : "Game info loading..." %>
-      Vs.
-    <%= @games ? @games["dates"][0]["games"][14]["teams"]["away"]["team"]["name"] : "Game info loading..." %>
+    <%= @games ? @games["dates"][0]["games"][i]["teams"]["away"]["team"]["name"] : "Game info loading..." %>
   </li>
 </ul>
+<% i += 1 %>
+<% z += 1 %>
+<% end %>
