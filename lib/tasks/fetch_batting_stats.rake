@@ -16,7 +16,7 @@ namespace :fetch_batting_stats do
     @parsed_content.css('.grid_line_regular').css('td').each do |td|
       @unsorted_batting_data << td.text
     end
-    #BattingStat.create(ops: @nationals.last.to_f, team_batting: 'nationals')
+
   end
 
   desc "Save Batting War Stats to CSV"
@@ -80,6 +80,7 @@ namespace :fetch_batting_stats do
     end
 
     @filtered_batting_data = [@batting_teams, @batting_war_float].transpose.to_h
+
 
   end
 
