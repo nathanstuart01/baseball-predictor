@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'nokogiri'
 gem 'rake'
 gem 'httparty'
+gem 'whenever', :require => false
 
 
 
