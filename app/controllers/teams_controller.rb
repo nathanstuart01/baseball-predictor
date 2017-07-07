@@ -8,6 +8,7 @@ class TeamsController < ApplicationController
 
   def game_info
     @games = JSON.parse(Team.scores)
+    @team_info = Team.all
   end
 
 
