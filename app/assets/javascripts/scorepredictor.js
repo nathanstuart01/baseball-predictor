@@ -1,4 +1,4 @@
 
 function warCalculator() {
-  document.getElementById("game_predictor").innerHTML = <%=team.name %>;
+  document.getElementById("game_predictor").innerHTML = "The winner is...";
 }
