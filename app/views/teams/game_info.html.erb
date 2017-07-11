@@ -2,23 +2,31 @@
 
 <h3>Today's Matchups:</h3>
 
-<% i = 0 %>
-<% z = 1 %>
-<% x = @games["dates"][0]["games"].length %>
-<% @time = Time.parse(@games["dates"][0]["games"][i]["gameDate"]) %>
+<% if @games["dates"].any? %>
+  <% i = 0 %>
+  <% z = 1 %>
+  <% x = @games["dates"][0]["games"].length %>
+  <% @time = Time.parse(@games["dates"][0]["games"][i]["gameDate"]) %>
 
-<% while (i < x) do %>
-<ul>
-  <li><b>Game <%=z %> :</b>
-    <%= @games ? @games["dates"][0]["games"][i]["teams"]["home"]["team"]["name"] : "Game info loading..." %>
-      Vs.
-    <%= @games ? @games["dates"][0]["games"][i]["teams"]["away"]["team"]["name"] : "Game info loading..." %>
-      @
-    <% @time = Time.parse(@games["dates"][0]["games"][i]["gameDate"])  %>
-    <%= @time.in_time_zone("Mountain Time (US & Canada)") %>
-    <button onClick="warCalculator()">Predict Winner</button>
-    <p id="game_predictor"></p>
-</ul>
-<% i += 1 %>
-<% z += 1 %>
-<% end %>
+  <% while (i < x) do %>
+    <ul>
+      <li><b>Game <%=z %> :</b>
+        <%= @games ? @games["dates"][0]["games"][i]["teams"]["home"]["team"]["name"] : "Game info loading..." %>
+          Vs.
+        <%= @games ? @games["dates"][0]["games"][i]["teams"]["away"]["team"]["name"] : "Game info loading..." %>
+          @
+        <% @time = Time.parse(@games["dates"][0]["games"][i]["gameDate"])  %>
+        <%= @time.in_time_zone("Mountain Time (US & Canada)") %>
+          <button onClick="warCalculator()">Predict Winner</button>
+            <p id="game_predictor"></p>
+    </ul>
+      <% i += 1 %>
+      <% z += 1 %>
+    <% end %>
+
+  <% else %>
+
+     <h3> No Game's Today </h3>
+    <% end %>
+
+    <%= link_to "Team War Info", root_path %>
