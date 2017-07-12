@@ -1,3 +1,5 @@
+<%= javascript_include_tag "scorepredictor" %>
+<body onload="totalWarCalculator()">
 <h1>Team Win Predictor</h1>
 <h3>Search for Team: </h3>
 
@@ -12,13 +14,11 @@
     <ul>
       <li><b><%= team.name %></b> </li>
       <br />
-      <li>Team Batting War: <%= team.batting_stat ? team.batting_stat.batting_war : 'Loading...' %> </li>
+      <li id="battingWar">Team Batting War: <%= team.batting_stat ? team.batting_stat.batting_war : 'Loading...' %> </li>
       <br />
-      <li>Team Pitching War: <%= team.pitching_stat ? team.pitching_stat.pitching_war : 'Loading...' %> </li>
+      <li id="pitchingWar">Team Pitching War: <%= team.pitching_stat ? team.pitching_stat.pitching_war : 'Loading...' %> </li>
       <br />
-      <li>Total War: <%= (team.batting_stat.batting_war + team.pitching_stat.pitching_war).round(1) %></li>
-
-
+      <li id="totalWar"></li>
     </ul>
 <% end %>
 
@@ -28,3 +28,4 @@
 <% end %>
 
 <%= link_to "Today's Games", game_info_path %>
+</body>
