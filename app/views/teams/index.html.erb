@@ -1,6 +1,5 @@
-<%= javascript_include_tag "scorepredictor" %>
-<body onload="totalWarCalculator()">
-<h1>Team Win Predictor</h1>
+
+<h1>Team WAR Stats</h1>
 <h3>Search for Team: </h3>
 
 <%= form_tag(teams_path, method: :get) do %>
@@ -14,11 +13,11 @@
     <ul>
       <li><b><%= team.name %></b> </li>
       <br />
-      <li id="battingWar">Team Batting War: <%= team.batting_stat ? team.batting_stat.batting_war : 'Loading...' %> </li>
+      <li>Team Batting War: <%= team.batting_stat ? team.batting_stat.batting_war : 'Loading...' %> </li>
       <br />
-      <li id="pitchingWar">Team Pitching War: <%= team.pitching_stat ? team.pitching_stat.pitching_war : 'Loading...' %> </li>
+      <li>Team Pitching War: <%= team.pitching_stat ? team.pitching_stat.pitching_war : 'Loading...' %> </li>
       <br />
-      <li id="totalWar"></li>
+      <li>Total Team War: <%= team.batting_stat && team.pitching_stat ? (team.batting_stat.batting_war + team.pitching_stat.pitching_war).round(10) : 'Loading...' %> </li>
     </ul>
 <% end %>
 

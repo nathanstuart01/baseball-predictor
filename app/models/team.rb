@@ -9,7 +9,7 @@ class Team < ApplicationRecord
     if search
       where(["name ILIKE ?","%#{search}%"])
     else
-      all
+      all.order(:name)
     end
   end
 
