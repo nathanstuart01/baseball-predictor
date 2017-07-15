@@ -19,6 +19,14 @@
         <% @time = Time.parse(@games["dates"][0]["games"][i]["gameDate"])  %>
 
         <%= @time.in_time_zone("Mountain Time (US & Canada)") %>
+
+          <button id="myBtn">Predicted Game Winner</button>
+            <div id="myModal" class="modal">
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                  <p><%= @total_war %></p>
+              </div>
+          </div>
       </li>
     </ul>
       <% i += 1 %>
@@ -28,22 +36,7 @@
   <% else %>
 
      <h3> No Game's Today </h3>
-<ul>
-           <li>Test Game: Mariners Vs Angels @ 7:00PM PST </li>
 
-           <!-- Trigger/Open The Modal -->
-           <button id="myBtn">Open Modal</button>
-</ul
-           <!-- The Modal -->
-           <div id="myModal" class="modal">
-
-             <!-- Modal content -->
-             <div class="modal-content">
-               <span class="close">&times;</span>
-               <p>Some text in the Modal..</p>
-             </div>
-
-           </div>
 
   <% end %>
 

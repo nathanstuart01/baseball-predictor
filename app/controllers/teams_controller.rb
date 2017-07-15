@@ -2,14 +2,12 @@ class TeamsController < ApplicationController
 
   def index
     @teams = Team.search(params[:search])
-    #@games = JSON.parse(Team.scores)
-    #including this here rendered the json data I wanted
   end
 
   def game_info
     @games = JSON.parse(Team.scores)
+    @total_war = Team.war_calculator((Team.find_by(name: "Mariners").batting_stat.batting_war), (Team.find_by(name: "Mariners").pitching_stat.pitching_war))
   end
-
 
 
 

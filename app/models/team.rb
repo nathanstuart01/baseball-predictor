@@ -21,6 +21,9 @@ class Team < ApplicationRecord
 
   end
 
+  def self.war_calculator(batting_war, pitching_war)
+    @total_war = (batting_war + pitching_war).round(10)
+  end
 
 
 
