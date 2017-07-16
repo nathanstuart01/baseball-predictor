@@ -1,31 +1,12 @@
-#Team.create(name: 'Yankees')
-Team.create(name: 'Red Sox')
-Team.create(name: 'Blue Jays')
-Team.create(name: 'Orioles')
-Team.create(name: 'Rays')
-Team.create(name: 'Twins')
-Team.create(name: 'Royals')
-Team.create(name: 'White Sox')
-Team.create(name: 'Indians')
-Team.create(name: 'Tigers')
-Team.create(name: 'Astros')
-Team.create(name: 'Angels')
-Team.create(name: 'Athletics')
-Team.create(name: 'Rangers')
-Team.create(name: 'Mets')
-Team.create(name: 'Braves')
-Team.create(name: 'Marlins')
-Team.create(name: 'Nationals')
-Team.create(name: 'Phillies')
-Team.create(name: 'Brewers')
-Team.create(name: 'Cardinals')
-Team.create(name: 'Reds')
-Team.create(name: 'Cubs')
-Team.create(name: 'Pirates')
-Team.create(name: 'Dodgers')
-Team.create(name: 'Giants')
-Team.create(name: 'Diamondbacks')
-Team.create(name: 'Rockies')
-Team.create(name: 'Padres')
+#Seed Initial Total War scores
+i = 1
+x = 31
 
-puts 'All MLB teams seeded in DB'
+while (i < x) do
+Team.where(id: i).update(total_war:
+  ((Team.find_by(id: i).batting_stat.batting_war) +
+  (Team.find_by(id:i).pitching_stat.pitching_war)).round(10))
+  i += 1
+end
+
+puts "War scores updated"

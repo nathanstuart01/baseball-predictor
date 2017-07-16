@@ -18,9 +18,9 @@ class Team < ApplicationRecord
               headers: {
                 "Content-type" => 'application/json'
                 }).body
-
   end
 
+    # Eventually make this method into a way to calculate win percentages based on total war scores
   def self.war_calculator(batting_war, pitching_war)
     @total_war = (batting_war + pitching_war).round(10)
   end

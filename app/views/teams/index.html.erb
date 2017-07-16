@@ -17,7 +17,7 @@
       <br />
       <li>Team Pitching War: <%= team.pitching_stat ? team.pitching_stat.pitching_war : 'Loading...' %> </li>
       <br />
-      <li>Total Team War: <%= team.batting_stat && team.pitching_stat ? (team.batting_stat.batting_war + team.pitching_stat.pitching_war).round(10) : 'Loading...' %> </li>
+      <li>Total Team War: <%= team.total_war ? team.total_war : 'Loading...' %> </li>
     </ul>
 <% end %>
 
