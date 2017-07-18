@@ -6,6 +6,7 @@ class TeamsController < ApplicationController
 
   def game_info
     @games = JSON.parse(Team.scores)
+    @total_war_difference = Team.win_predictor(Team.second.total_war, Team.third.total_war)
   end
 
 

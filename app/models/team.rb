@@ -20,11 +20,12 @@ class Team < ApplicationRecord
                 }).body
   end
 
-    # Eventually make this method into a way to calculate win percentages based on total war scores
-  def self.war_calculator(batting_war, pitching_war)
-    @total_war = (batting_war + pitching_war).round(10)
+  def self.win_predictor(total_war1, total_war2)
+      raw_win_difference = total_war1 - total_war2
+      if raw_win_difference < 0
+        @total_war_difference = raw_win_difference * -1
+      else
+        @total_war_difference = raw_win_difference * 1
+      end
   end
-
-
-
 end
