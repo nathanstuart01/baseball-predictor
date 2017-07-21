@@ -1,0 +1,6 @@
+<% @games.each do |game| %>
+<ul>
+  <%= game.home_team != nil ? game.home_team : '' %> vs. <%= game.away_team != nil ? game.away_team : '' %> @ <%= game.game_info != nil ? game.game_info : '' %> </li>
+</ul>
+
+<% end %>

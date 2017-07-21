@@ -17,3 +17,9 @@ set :environment, "development"
 every :day, :at => "06:35am" do
   rake "update_team_total_war:update_team_total_war_in_db"
 end
+
+set :environment, "development"
+
+every :day, :at => "08:00am" do
+  rake ":update_game_info:update_game_info_in_db"
+end

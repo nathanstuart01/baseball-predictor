@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'teams#index'
+  root 'games#index'
 
   #Custom Routes
   get 'scraped_pitching_wars', to: 'pitching_stats#scraped_pitching_wars'
@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get 'game_info', to: 'teams#game_info'
 
   resources :teams do
+  end
+
+  resources :games do
   end
 
 end
