@@ -1,6 +1,22 @@
-<% @games.each do |game| %>
-<ul>
-  <%= game.home_team != nil ? game.home_team : '' %> vs. <%= game.away_team != nil ? game.away_team : '' %> @ <%= game.game_info != nil ? game.game_info : '' %> </li>
-</ul>
+<h3>Today's Games:</h3>
 
-<% end %>
+  <% if @games.present? %>
+
+      <% @games.each do |game| %>
+
+        <ul>
+          <li> <%= game.away_team %> @ <%= game.home_team %> </li>
+            <ul>
+              <li> First Pitch: <%= game.game_info.strftime("%l:%M") %> MST </li>
+            </ul>
+        </ul>
+
+    <% end %>
+
+  <% else %>
+
+    <h5> No Games Scheduled For Today</h5>
+
+  <% end %>
+
+    <%= link_to "Team War Info", teams_path %>
