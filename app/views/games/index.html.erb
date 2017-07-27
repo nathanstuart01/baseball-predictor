@@ -1,3 +1,7 @@
+<%= stylesheet_link_tag "application" %>
+<%= javascript_include_tag "scorepredictor"  %>
+
+
 <h3>Today's Games:</h3>
 
   <% if @games.present? %>
@@ -8,15 +12,18 @@
           <li> <%= game.away_team %> @ <%= game.home_team %> </li>
             <ul>
               <li> First Pitch: <%= game.game_info.strftime("%l:%M") %> MST </li>
+              <li class="expectedWinner">Predicted Game Winner: </li>
             </ul>
         </ul>
 
     <% end %>
-
   <% else %>
 
     <h5> No Games Scheduled For Today</h5>
 
   <% end %>
+
+  <ul class="teamData">
+  </ul>
 
     <%= link_to "Team War Info", teams_path %>
