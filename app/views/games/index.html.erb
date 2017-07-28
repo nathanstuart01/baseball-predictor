@@ -1,6 +1,4 @@
 <%= stylesheet_link_tag "application" %>
-<%= javascript_include_tag "scorepredictor"  %>
-
 
 <h3>Today's Games:</h3>
 
@@ -12,7 +10,7 @@
           <li> <%= game.away_team %> @ <%= game.home_team %> </li>
             <ul>
               <li> First Pitch: <%= game.game_info.strftime("%l:%M") %> MST </li>
-              <li class="expectedWinner">Predicted Game Winner: </li>
+              <p class="war">Total War: </p>
             </ul>
         </ul>
 
@@ -24,6 +22,7 @@
   <% end %>
 
   <ul class="teamData">
+    <p class="war"></p>
   </ul>
 
     <%= link_to "Team War Info", teams_path %>
