@@ -2,8 +2,10 @@ class TeamsController < ApplicationController
 
   def index
     @teams = Team.search(params[:search])
-    @team_data = Team.all
-    render json: @team_data
+    respond_to do |format|
+      format.html 
+      format.json { render json: @teams}
+      end
   end
 
   def game_info

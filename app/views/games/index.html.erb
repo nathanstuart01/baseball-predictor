@@ -1,5 +1,6 @@
-<%= stylesheet_link_tag "application" %>
+<%= javascript_include_tag "scorepredictor" %>
 
+<body class="scorepredictor">
 <h3>Today's Games:</h3>
 
   <% if @games.present? %>
@@ -11,6 +12,7 @@
             <ul>
               <li> First Pitch: <%= game.game_info.strftime("%l:%M") %> MST </li>
               <p class="war">Total War: </p>
+              <p class="info">Home Team: </p>
             </ul>
         </ul>
 
@@ -21,8 +23,5 @@
 
   <% end %>
 
-  <ul class="teamData">
-    <p class="war"></p>
-  </ul>
-
     <%= link_to "Team War Info", teams_path %>
+</body>
