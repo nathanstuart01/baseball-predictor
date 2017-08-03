@@ -8,20 +8,16 @@ class TeamsController < ApplicationController
       end
   end
 
-  def game_info
-    @total_war_difference = Team.win_predictor(Team.second.total_war, Team.third.total_war)
-  end
 
 
+#  private figure out the explanation behind the methods below and why and when to use them
 
-  private
+#  def set_team
+#    @team = Team.find(params[:id])
+#  end
 
-  def set_team
-    @team = Team.find(params[:id])
-  end
-
-  def team_params
-    params.require(:team).permit(:name, :search)
-  end
+#  def team_params
+#    params.require(:team).permit(:name, :search)
+#  end
 
 end

@@ -1,19 +1,20 @@
 $(document).ready(function (){
   var gameInfo;
   var teamData;
+  var rawWinDifference;
+  var totalWarDifference;
 
 
   function warCalculator(totalWar1, totalWar2) {
-    var rawWinDifference = totalWar1 - totalWar2;
-    var totalWarDifference;
+    rawWinDifference = totalWar1 - totalWar2;
 
-        if (rawWinDifference < 0) {
-              totalWarDifference = rawWinDifference * -1
-        } else {
-              totalWarDifference = rawWinDifference * 1
-        }
-          $(".war").append(totalWarDifference);
-        };
+      if (rawWinDifference < 0) {
+        totalWarDifference = rawWinDifference * -1
+      } else {
+        totalWarDifference = rawWinDifference * 1
+      }
+        $(".war").append(totalWarDifference);
+      };
 
       $.ajax({
       url: "/games",
