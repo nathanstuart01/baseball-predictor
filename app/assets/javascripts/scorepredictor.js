@@ -13,8 +13,25 @@ $(document).ready(function (){
       } else {
         totalWarDifference = rawWinDifference * 1
       }
-        $(".war").append(totalWarDifference);
-      };
+// probably write another function here to call the switch statement
+
+      var calculatedWarDifference = totalWarDifference;
+      console.log(calculatedWarDifference)
+      switch (calculatedWarDifference) {
+        case calculatedWarDifference  = 0 :
+          $(".war").append(gameInfo[0].home_team);
+          break;
+        case calculatedWarDifference  = 1.200000000000001 :
+          $(".war").append(gameInfo[0].away_team);
+          break;
+        case calculatedWarDifference  = 1 :
+          $(".war").append("The team with the bigger war score will win");
+          break;
+        default:
+          $(".war").append("Predicted Winner Being Calculated....");
+        }
+
+    };
 
       $.ajax({
       url: "/games",
