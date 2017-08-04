@@ -4,35 +4,6 @@ $(document).ready(function (){
   var rawWinDifference;
   var totalWarDifference;
 
-
-  function warCalculator(totalWar1, totalWar2) {
-    rawWinDifference = totalWar1 - totalWar2;
-
-      if (rawWinDifference < 0) {
-        totalWarDifference = rawWinDifference * -1
-      } else {
-        totalWarDifference = rawWinDifference * 1
-      }
-// probably write another function here to call the switch statement
-
-      var calculatedWarDifference = totalWarDifference;
-      console.log(calculatedWarDifference)
-      switch (calculatedWarDifference) {
-        case calculatedWarDifference  = 0 :
-          $(".war").append(gameInfo[0].home_team);
-          break;
-        case calculatedWarDifference  = 1.200000000000001 :
-          $(".war").append(gameInfo[0].away_team);
-          break;
-        case calculatedWarDifference  = 1 :
-          $(".war").append("The team with the bigger war score will win");
-          break;
-        default:
-          $(".war").append("Predicted Winner Being Calculated....");
-        }
-
-    };
-
       $.ajax({
       url: "/games",
       type: "GET",
@@ -52,10 +23,42 @@ $(document).ready(function (){
     data: {}
     }).done(function(teams) {
       teamData = teams;
-      warCalculator(teamData[2].total_war, teamData[3].total_war)
+      //warCalculator(teamData[2].total_war, teamData[3].total_war)
+      gameInfoWarMatcher()
       console.log(teamData);
       }).fail(function(data) {
         console.log("Data Did Not Load");
       });
 
+      function warCalculator(totalWar1, totalWar2) {
+        rawWinDifference = totalWar1 - totalWar2;
+
+          if (rawWinDifference < 0) {
+            totalWarDifference = rawWinDifference * -1
+          } else {
+            totalWarDifference = rawWinDifference * 1
+          }
+        };
+
+      function gameInfoWarMatcher() {
+            var games = gameInfo;
+            var teams = teamData;
+            var homeWarScore;
+            var x = games.length;
+            var z = teams.length;
+
+            for (home_team in games ) {
+            if (games[0].home_team === teams[4].name) {
+              console.log("match");
+            } else {
+              console.log("no match");
+              }
+            }
+
+          };
+          //loop through all the game data
+          //while looping when game data home team matches team name
+          // grab the team names war total
+          // put that war total as a value to be calculated in the war calculator as total war 1
+          // repeat for the away team
   });
