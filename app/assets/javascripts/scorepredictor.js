@@ -23,9 +23,9 @@ $(document).ready(function (){
     data: {}
     }).done(function(teams) {
       teamData = teams;
-      //warCalculator(teamData[2].total_war, teamData[3].total_war)
-      gameInfoWarMatcher()
       console.log(teamData);
+      awayTeamsMatcher();
+      homeTeamsMatcher();
       }).fail(function(data) {
         console.log("Data Did Not Load");
       });
@@ -40,25 +40,41 @@ $(document).ready(function (){
           }
         };
 
-      function gameInfoWarMatcher() {
-            var games = gameInfo;
-            var teams = teamData;
-            var homeWarScore;
-            var x = games.length;
-            var z = teams.length;
 
-            for (home_team in games ) {
-            if (games[0].home_team === teams[4].name) {
-              console.log("match");
-            } else {
-              console.log("no match");
-              }
-            }
+    function awayTeamsMatcher() {
+      var awayTeams = teamData;
+      var awayGames = gameInfo;
+      var x;
+      var y;
+      var i;
+      var l;
 
-          };
-          //loop through all the game data
-          //while looping when game data home team matches team name
-          // grab the team names war total
-          // put that war total as a value to be calculated in the war calculator as total war 1
-          // repeat for the away team
+        for (x = 0, y = awayGames.length; x < y; x ++) {
+          for (i = 0, l = awayTeams.length; i < l; i++) {
+            if ( awayTeams[i].name === awayGames[x].away_team ) {
+                console.log('Game ' + awayGames[x].id + ': Team: ' + awayTeams[i].name + ' WAR: ' + awayTeams[i].total_war);
+             }
+          }
+        }
+
+    };
+
+    function homeTeamsMatcher() {
+      var homeTeams = teamData;
+      var homeGames = gameInfo;
+      var a;
+      var b;
+      var c;
+      var d;
+
+        for (a = 0, b =homeGames.length; a < b; a ++) {
+          for (c = 0, d = homeTeams.length; c < d; c++) {
+            if ( homeTeams[c].name === homeGames[a].home_team ) {
+                console.log('Game ' + homeGames[a].id + ': Team: ' + homeTeams[c].name + ' WAR: ' + homeTeams[c].total_war);
+             }
+          }
+        }
+
+    };
+
   });
