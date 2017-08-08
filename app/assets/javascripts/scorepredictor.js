@@ -5,28 +5,29 @@ $(document).ready(function (){
   var totalWarDifference;
 
       $.ajax({
-      url: "/games",
-      type: "GET",
-      dataType: "JSON",
-      data: {}
+        url: "/games",
+        type: "GET",
+        dataType: "JSON",
+        data: {}
    }).done(function(games) {
-       gameInfo = games;
-       console.log(gameInfo);
-       }).fail(function(data) {
-       console.log("Data Did Not Load");
-     });
+        gameInfo = games;
+        console.log(gameInfo);
+   }).fail(function(data) {
+        console.log("Data Did Not Load");
+  });
 
     $.ajax({
-    url: "/teams",
-    type: "GET",
-    dataType: "JSON",
-    data: {}
+        url: "/teams",
+        type: "GET",
+        dataType: "JSON",
+        data: {}
     }).done(function(teams) {
-      teamData = teams;
-      console.log(teamData);
-      awayTeamsMatcher();
-      homeTeamsMatcher();
-      }).fail(function(data) {
+        teamData = teams;
+        console.log(teamData);
+
+        awayTeamsMatcher();
+        homeTeamsMatcher();
+    }).fail(function(data) {
         console.log("Data Did Not Load");
       });
 
@@ -40,10 +41,10 @@ $(document).ready(function (){
           }
         };
 
-
     function awayTeamsMatcher() {
       var awayTeams = teamData;
       var awayGames = gameInfo;
+      var awayData = [];
       var x;
       var y;
       var i;
@@ -52,16 +53,17 @@ $(document).ready(function (){
         for (x = 0, y = awayGames.length; x < y; x ++) {
           for (i = 0, l = awayTeams.length; i < l; i++) {
             if ( awayTeams[i].name === awayGames[x].away_team ) {
-                console.log('Game ' + awayGames[x].id + ': Team: ' + awayTeams[i].name + ' WAR: ' + awayTeams[i].total_war);
+                awayData.push(awayGames[x].id, awayTeams[i].name, awayTeams[i].total_war);
+                console.log(awayData);
              }
           }
         }
-
     };
 
     function homeTeamsMatcher() {
       var homeTeams = teamData;
       var homeGames = gameInfo;
+      var homeData = [];
       var a;
       var b;
       var c;
@@ -70,11 +72,18 @@ $(document).ready(function (){
         for (a = 0, b =homeGames.length; a < b; a ++) {
           for (c = 0, d = homeTeams.length; c < d; c++) {
             if ( homeTeams[c].name === homeGames[a].home_team ) {
-                console.log('Game ' + homeGames[a].id + ': Team: ' + homeTeams[c].name + ' WAR: ' + homeTeams[c].total_war);
+                homeData.push(homeGames[a].id, homeTeams[c].name, homeTeams[c].total_war);
+                console.log(homeData);
              }
           }
         }
 
     };
+
+    // need to take the data that I have parsed in my console, somehow pass it to the function warcalculator
+    // need to assign a variable value to each away and home team value
+    // is there a game to pass things to war calculator based on game id
+    // push results to an away and home team game array??
+    //let the function warcalculator calculate the values and thne spit it out onto the list items for each individual game
 
   });
