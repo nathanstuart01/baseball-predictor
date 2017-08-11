@@ -27,7 +27,7 @@ $(document).ready(function (){
         data: {}
     }).done(function(teams) {
         teamData = teams;
-        console.log(teamData);
+        console.log(teamData[0]);
         if (teamData.length === 30) {
           awayTeamsMatcher(homeTeamsMatcher);
         } else {
@@ -77,17 +77,27 @@ $(document).ready(function (){
               }
             }
             if (homeData.length === awayData.length) {
-                pushDataIntoGamesArray(awayData);
+                pushDataIntoGamesObjects(awayData);
             } else {
               alert("Game data loading...");
             }
           }
 
-        function pushDataIntoGamesArray(arr1) {
-          for (var e = 0, len = 1; e < len; e++) {
-            gamesData.push(awayData);
-          }
-          console.log(awayData);
+        function pushDataIntoGamesObjects(arr1) {
+          var gamesObject = {};
+            for (var e = 0; e < awayData.length; ++e)
+              gamesObject[e] = awayData[e];
+          console.log(gamesObject);
         }
+
+// create an object that has each game as a string
+// populate each game key with an away team, home team, id, and total war score for each one
+// loop through the object, and pass the game numbers total war scores to the war calculator function
+// have the war calcualtor calculate the results and send the results to a case statement
+// have the case statement determine a predicted winnner based on the total war score calculation difference
+// have the case statement pass the total war difference predictiton to each game and display a string with the percent chance for that team winning the game
+
+
+
 
   });
