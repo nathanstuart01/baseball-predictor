@@ -2,11 +2,29 @@ $(document).ready(function (){
 
   var gameInfo;
   var teamData;
-  var rawWinDifference;
-  var totalWarDifference;
   var gamesData = [];
   var awayData =[];
   var homeData =[];
+  var totalWarDifference;
+  var rawWarDifference;
+
+  var AllGames = {
+      gameNumber: 1,
+      awayTeam: "Seattle Mariners",
+      awayWar: 16.7,
+      homeTeam: "Los Angeles Angels",
+      homeWar: 20,
+      totalWar: function(war1, war2) {
+          rawlWarDifference = war1 - war2
+          totalWarDifference = rawWarDifference * -1;
+        //  if (rawWarDifference < 0) {
+        //    totalWarDifference = rawWarDifference * -1
+        //  } else {
+        //    totalWarDifference = rawWarDifference
+        //  }
+        console.log(totalWarDifference);
+      }
+    };
 
       $.ajax({
         url: "/games",
@@ -27,7 +45,7 @@ $(document).ready(function (){
         data: {}
     }).done(function(teams) {
         teamData = teams;
-        console.log(teamData[0]);
+        console.log(teamData);
         if (teamData.length === 30) {
           awayTeamsMatcher(homeTeamsMatcher);
         } else {
@@ -77,18 +95,14 @@ $(document).ready(function (){
               }
             }
             if (homeData.length === awayData.length) {
-                pushDataIntoGamesObjects(awayData);
+              console.log(AllGames.totalWar(AllGames.awayWar, AllGames.homeWar));
+            // call Allgames Object Here  console.log(;
             } else {
               alert("Game data loading...");
             }
           }
 
-        function pushDataIntoGamesObjects(arr1) {
-          var gamesObject = {};
-            for (var e = 0; e < awayData.length; ++e)
-              gamesObject[e] = awayData[e];
-          console.log(gamesObject);
-        }
+
 
 // create an object that has each game as a string
 // populate each game key with an away team, home team, id, and total war score for each one
