@@ -2,29 +2,7 @@ $(document).ready(function (){
 
   var gameInfo;
   var teamData;
-  var gamesData = [];
   var awayData =[];
-  var homeData =[];
-  var totalWarDifference;
-  var rawWarDifference;
-
-  var AllGames = {
-      gameNumber: 1,
-      awayTeam: "Seattle Mariners",
-      awayWar: 16.7,
-      homeTeam: "Los Angeles Angels",
-      homeWar: 20,
-      totalWar: function(war1, war2) {
-          rawlWarDifference = war1 - war2
-          totalWarDifference = rawWarDifference * -1;
-        //  if (rawWarDifference < 0) {
-        //    totalWarDifference = rawWarDifference * -1
-        //  } else {
-        //    totalWarDifference = rawWarDifference
-        //  }
-        console.log(totalWarDifference);
-      }
-    };
 
       $.ajax({
         url: "/games",
@@ -47,7 +25,7 @@ $(document).ready(function (){
         teamData = teams;
         console.log(teamData);
         if (teamData.length === 30) {
-          awayTeamsMatcher(homeTeamsMatcher);
+          awayTeamsMatcher(allGames);
         } else {
           alert("Data Loading...");
         }
@@ -65,7 +43,7 @@ $(document).ready(function (){
 
             for (x = 0, y = awayGames.length; x < y; x ++) {
               for (i = 0, l = awayTeams.length; i < l; i++) {
-                if ( awayTeams[i].name === awayGames[x].away_team ) {
+                if ( awayTeams[i].name === awayGames[x].away_team || awayTeams[i].name === awayGames[x].home_team ) {
                     awayData.push(awayGames[x].id, awayTeams[i].name, awayTeams[i].total_war);
                     console.log(awayData);
                  }
@@ -77,30 +55,25 @@ $(document).ready(function (){
             }
         }
 
+        function Games(gameNumber, awayTeam, awayWar, homeTeam, homeWar) {
+            this.gameNumber = gameNumber;
+            this.awayTeam = awayTeam;
+            this.awayWar = awayWar;
+            this.homeTeam = homeTeam;
+            this.homeWar = homeWar;
+        }
 
-        function homeTeamsMatcher() {
-          var homeTeams = teamData;
-          var homeGames = gameInfo;
-          var a;
-          var b;
-          var c;
-          var d;
+        var gameOne = new Games(1, "Mariners", 16.7, "Orioles", 20.0);
+        var gameTwo = new Games(2, "yankees", 16.7, "rangers", 20.0);
 
-            for (a = 0, b =homeGames.length; a < b; a ++) {
-              for (c = 0, d = homeTeams.length; c < d; c++) {
-                if ( homeTeams[c].name === homeGames[a].home_team ) {
-                    homeData.push(homeGames[a].id, homeTeams[c].name, homeTeams[c].total_war);
-                    console.log(homeData);
-                 }
-              }
-            }
-            if (homeData.length === awayData.length) {
-              console.log(AllGames.totalWar(AllGames.awayWar, AllGames.homeWar));
-            // call Allgames Object Here  console.log(;
-            } else {
-              alert("Game data loading...");
-            }
-          }
+        function allGames() {
+          var gamesData = [];
+          gamesData.push(gameOne, gameTwo)
+          console.log(awayData);
+          console.log(gamesData[0].awayTeam, gamesData[1].homeTeam);
+          // push the game one and game two into an array, they are both objects
+        }
+
 
 
 
