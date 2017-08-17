@@ -3,6 +3,7 @@ $(document).ready(function (){
   var gameInfo;
   var teamData;
   var awayData =[];
+  var gamesData = [];
 
       $.ajax({
         url: "/games",
@@ -63,15 +64,28 @@ $(document).ready(function (){
             this.homeWar = homeWar;
         }
 
-        var gameOne = new Games(1, "Mariners", 16.7, "Orioles", 20.0);
-        var gameTwo = new Games(2, "yankees", 16.7, "rangers", 20.0);
+    //    var gameOne = new Games(1, "Mariners", 16.7, "Orioles", 20.0);
+    //    var gameTwo = new Games(2, "yankees", 16.7, "rangers", 20.0);
 
         function allGames() {
-          var gamesData = [];
-          gamesData.push(gameOne, gameTwo)
-          console.log(awayData);
-          console.log(gamesData[0].awayTeam, gamesData[1].homeTeam);
-          // push the game one and game two into an array, they are both objects
+          var z;
+          // create dynamic objects, see stackoverflow, by looping through games and creating a new object for each game there is
+          // loop through all games data and add the data to each game object and find a way to only add game number once,
+          // once all objects have a value, go to the next object and start looping through that object as well
+          // continue filling up objects, only adding one new game number, and then starting to fill up the new objects once all existing objects properties are not null
+          // look at ways to check properitie of an object in js
+          // maybe do a sort, or type of
+          // maybe use a regexp to eliminate duplicate non-float numbers 
+          for ( z = 0; z < awayData.length; z ++) {
+            if (awayData % 3 === 0) {
+            gamesData.push(awayData)
+            console.log(gamesData)
+          }
+          }
+      //    gamesData.push(gameOne, gameTwo)
+      //    console.log(awayData);
+      //    console.log(gamesData);
+
         }
 
 
