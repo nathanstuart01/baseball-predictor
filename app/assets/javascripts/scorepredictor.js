@@ -63,13 +63,11 @@ $(document).ready(function (){
 
 
         function allGames() {
-          var gamesDataz = [];
-          var game[x];
-
-          for
-          gamesDataz.push(gameOne1, gameTwo2);
-          console.log(gamesDataz[0]["teamTwoWar"]);
-
+          var gamesDataz = {};
+          for (var l =0; l < gameInfo.length; l ++) {
+          gamesDataz[l] = new Games();
+          console.log(gamesDataz[0][3]);
+          }
         }
 
 
