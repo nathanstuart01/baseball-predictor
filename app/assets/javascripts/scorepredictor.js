@@ -55,10 +55,10 @@ $(document).ready(function (){
         }
 
         function allGames() {
-          for (var c = 0; c < gamesData.length; c ++) {
-            allGamesData.push({"teamOne": gamesData[c], "teamOneWar": gamesData[c + 1], "teamTwo": gamesData[c + 2 ], "teamTwoWar": gamesData[c + 3] })
+          for (var c = 0; c < gamesData.length; c = c +4) {
+            allGamesData.push({"teamOne": gamesData[c], "teamOneWar": gamesData[c +1], "teamTwo": gamesData[c +2], "teamTwoWar": gamesData[c +3] })
           }
-          console.log(allGamesData);
+          console.log(allGamesData[0]["teamTwoWar"]);
 
         }
 
