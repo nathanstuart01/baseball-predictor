@@ -3,6 +3,7 @@ $(document).ready(function (){
   var gameInfo;
   var teamData;
   var gamesData = [];
+  var allGamesData = [];
 
       $.ajax({
         url: "/games",
@@ -39,7 +40,6 @@ $(document).ready(function (){
           var x;
           var i;
 
-
             for (x = 0; x < games.length; x ++) {
               for (i = 0; i < teams.length; i++) {
                 if ( teams[i].name === games[x].away_team || teams[i].name === games[x].home_team ) {
@@ -54,26 +54,16 @@ $(document).ready(function (){
             }
         }
 
-        function Games(teamOne, teamOneWar, teamTwo, teamTwoWar) {
-            this.teamOne = teamOne;
-            this.teamOneWar = teamOneWar;
-            this.teamTwo = teamTwo;
-            this.teamTwoWar = teamTwoWar;
-        }
-
-
         function allGames() {
-          var gamesDataz = {};
-          for (var l =0; l < gameInfo.length; l ++) {
-          gamesDataz[l] = new Games();
-          console.log(gamesDataz[0][3]);
+          for (var c = 0; c < gamesData.length; c ++) {
+            allGamesData.push({"teamOne": gamesData[c], "teamOneWar": gamesData[c + 1], "teamTwo": gamesData[c + 2 ], "teamTwoWar": gamesData[c + 3] })
           }
+          console.log(allGamesData);
+
         }
 
 
 
-
-// create an object that has each game as a string
 // populate each game key with an away team, home team, id, and total war score for each one
 // loop through the object, and pass the game numbers total war scores to the war calculator function
 // have the war calcualtor calculate the results and send the results to a case statement
