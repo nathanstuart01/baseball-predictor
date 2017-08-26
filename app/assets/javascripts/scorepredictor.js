@@ -54,17 +54,42 @@ $(document).ready(function (){
             }
         }
 
+// alternate way to acheieve same games array result, create an object protoype
+
+//        function Game(team1, team1War, team2, team2War) {
+//            this.teamOne = team1;
+//            this.teamOneWar = team1War;
+//            this.teamTwo = team2;
+//            this.teamTwoWar = team2War;
+//        }
+
         function allGames() {
-          for (var c = 0; c < gamesData.length; c = c +4) {
-            allGamesData.push({"teamOne": gamesData[c], "teamOneWar": gamesData[c +1], "teamTwo": gamesData[c +2], "teamTwoWar": gamesData[c +3] })
-          }
-          console.log(allGamesData[0]["teamTwoWar"]);
+         for (var c = 0; c < gamesData.length; c = c +4) {
+// alternate way to acheieve same result, see belwo
+//            allGamesData.push(new Game(gamesData[c], gamesData[c +1], gamesData[c +2], gamesData[c +3] ))
+            allGamesData.push(
+              {"teamOne": gamesData[c],
+              "teamOneWar": gamesData[c +1],
+              "teamTwo": gamesData[c +2],
+              "teamTwoWar": gamesData[c +3] }
+              )
+         }
+         console.log(allGamesData);
+         warCalculator(allGamesData[0]["teamOne"],
+                      allGamesData[0]["teamOneWar"],
+                      allGamesData[0]["teamTwo"],
+                      allGamesData[0]["teamTwoWar"]);
+     }
 
+      function warCalculator(team1, team1War, team2, team2War) {
+        console.log(team1, team1War, team2, team2War);
+        if (team1War > team2War) {
+          console.log(team1)
+        } else  {
+          console.log(team2);
         }
+      }
 
-
-
-// populate each game key with an away team, home team, id, and total war score for each one
 // loop through the object, and pass the game numbers total war scores to the war calculator function
 // have the war calcualtor calculate the results and send the results to a case statement
 // have the case statement determine a predicted winnner based on the total war score calculation difference
