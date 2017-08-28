@@ -82,11 +82,16 @@ $(document).ready(function (){
      }
 
       function warCalculator(team1, team1War, team2, team2War) {
+        var txt1 = $("<li></li>").text("Predicted Winner:" + txt2);
+        var txt2;
+
         console.log(team1, team1War, team2, team2War);
         if (team1War > team2War) {
           console.log(team1)
         } else  {
           console.log(team2);
+          txt2 = team2
+          $(".war").after(txt1);
         }
       }
 
