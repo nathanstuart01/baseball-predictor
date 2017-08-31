@@ -1,9 +1,11 @@
-require 'test_helper'
+require 'rails_helper'
 
-class TeamsControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    get teams_index_url
-    assert_response :success
+RSpec.describe TeamsController, type: :controller do
+
+  test "GET #index" do
+    get :index
+    expect(response).to have_http_status(:success)
   end
+
 
 end
