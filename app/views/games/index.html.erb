@@ -1,7 +1,7 @@
 <%= javascript_include_tag "scorepredictor" %>
 <%= stylesheet_link_tag "teamstyles" %>
 
-<body class="scorepredictor">
+<body>
 <h3>Today's Games:</h3>
 
   <% if @games.present? %>
@@ -11,9 +11,10 @@
         <ul>
           <li> <%= game.away_team %> @ <%= game.home_team %> </li>
             <ul>
-              <li class="war">First Pitch: <%= game.game_info.strftime("%l:%M") %> MST </li>
+              <li>First Pitch: <%= game.game_info.strftime("%l:%M") %> MST </li>
               <br />
-            
+              <li class="predictedWinner"></li>
+
 
             </ul>
         </ul>

@@ -75,30 +75,44 @@ $(document).ready(function (){
               )
          }
          console.log(allGamesData);
-         warCalculator(allGamesData[0]["teamOne"],
-                      allGamesData[0]["teamOneWar"],
-                      allGamesData[0]["teamTwo"],
-                      allGamesData[0]["teamTwoWar"]);
+         warCalculator();
      }
 
-      function warCalculator(team1, team1War, team2, team2War) {
-        var txt1 = $("<li></li>").text("Predicted Winner:" + txt2);
-        var txt2;
+      function warCalculator() {
+        var teamInfo1;
+        var teamInfo1War;
+        var teamInfo2r;
+        var teamInfo2War;
 
-        console.log(team1, team1War, team2, team2War);
-        if (team1War > team2War) {
-          console.log(team1)
-        } else  {
-          console.log(team2);
-          txt2 = team2
-          $(".war").after(txt1);
-        }
-      }
+        for ( var c = 0; c < allGamesData.length; c ++) {
 
-// loop through the object, and pass the game numbers total war scores to the war calculator function
-// have the war calcualtor calculate the results and send the results to a case statement
-// have the case statement determine a predicted winnner based on the total war score calculation difference
-// have the case statement pass the total war difference predictiton to each game and display a string with the percent chance for that team winning the game
+            var teamInfo1 = allGamesData[c]["teamOne"];
+            var teamInfo1War = allGamesData[c]["teamOneWar"];
+            var teamInfo2 = allGamesData[c]["teamTwo"];
+            var teamInfo2War = allGamesData[c]["teamTwoWar"];
+
+               if (teamInfo1War > teamInfo2War) {
+                  console.log(teamInfo1, teamInfo1War)
+              $('.predictedWinner').append(teamInfo1);
+                    } else  {
+                   console.log(teamInfo2, teamInfo2War);
+               $('.predictedWinner').append(teamInfo2);
+
+                 }
+               }
+             }
+
+             // need to figure out how to only add one value for each team to its corresponding list item,
+             // perhaps make each game an id css element, base that on games length,
+             //then append each game based on the id
+        //loop through games object
+        //each game gets the x value from the loop
+        // take team 1 war and subtract team 2 war from it
+        // if result is less than 0, multiply result by -1
+        // take result and send it to a case statement,
+        // each result will be a different variable tied to the game
+        // results will change, 0-5 difference, 55% chance of winning, 6-10, 60% chance of winning, 11-20 65% chance of winning, 21-25 70% chance of winning or better, 26+ 75% or greater chance of winning
+        // append the text statement to another list item showing eachs win probability
 
 
 
