@@ -79,10 +79,6 @@ $(document).ready(function (){
      }
 
       function warCalculator() {
-        var teamInfo1;
-        var teamInfo1War;
-        var teamInfo2r;
-        var teamInfo2War;
 
         for ( var c = 0; c < allGamesData.length; c ++) {
 
@@ -90,14 +86,15 @@ $(document).ready(function (){
             var teamInfo1War = allGamesData[c]["teamOneWar"];
             var teamInfo2 = allGamesData[c]["teamTwo"];
             var teamInfo2War = allGamesData[c]["teamTwoWar"];
+            var txt2 = $("<li></li>").text("text.");
 
                if (teamInfo1War > teamInfo2War) {
                   console.log(teamInfo1, teamInfo1War)
-              $('.predictedWinner').append(teamInfo1);
-                    } else  {
-                   console.log(teamInfo2, teamInfo2War);
-               $('.predictedWinner').append(teamInfo2);
 
+                  $("#predictedWinner").append(teamInfo1);
+                    }  else  {
+                  console.log(teamInfo2, teamInfo2War);
+  
                  }
                }
              }
