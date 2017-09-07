@@ -10,11 +10,11 @@
 
         <ul>
           <li> <%= game.away_team %> @ <%= game.home_team %> </li>
-            <ul>
-              <li>First Pitch: <%= game.game_info.strftime("%l:%M") %> MST </li>
-              <br />
-              <li id="predictedWinner"></li>
-            </ul>
+          <br />
+          <li>First Pitch: <%= game.game_info.strftime("%l:%M") %> MST </li>
+          <br />
+          <li class="predictedWinner"></li>
+
         </ul>
 
     <% end %>

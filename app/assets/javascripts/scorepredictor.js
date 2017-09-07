@@ -4,6 +4,8 @@ $(document).ready(function (){
   var teamData;
   var gamesData = [];
   var allGamesData = [];
+  var names = [];
+  var wars = [];
 
       $.ajax({
         url: "/games",
@@ -86,19 +88,36 @@ $(document).ready(function (){
             var teamInfo1War = allGamesData[c]["teamOneWar"];
             var teamInfo2 = allGamesData[c]["teamTwo"];
             var teamInfo2War = allGamesData[c]["teamTwoWar"];
-            var txt2 = $("<li></li>").text("text.");
+            var list = $('#predictedWinner');
+            var parent = list.parent();
 
                if (teamInfo1War > teamInfo2War) {
-                  console.log(teamInfo1, teamInfo1War)
-
-                  $("#predictedWinner").append(teamInfo1);
+                  console.log(teamInfo1, teamInfo1War);
+                  names.push(teamInfo1);
+                  wars.push(teamInfo1War);
                     }  else  {
                   console.log(teamInfo2, teamInfo2War);
-  
+                  names.push(teamInfo2);
+                  wars.push(teamInfo2War);
                  }
                }
-             }
+               console.log(names);
+               console.log(wars);
+               winnerAdder();
 
+
+              //      $(this).append('<li>' + names[x] + '</li>'); something with this is whats next
+              //perhaps make a new function that is called that appends the list items after they are added to the array
+
+
+     }
+
+     function winnerAdder() {
+       for (var c = 0; c <names.length; c ++) {
+         $('.predictedWinner').append(names[c]);
+       }
+     }
+             // need to make a new id each time, that is tied to my list item in rails
              // need to figure out how to only add one value for each team to its corresponding list item,
              // perhaps make each game an id css element, base that on games length,
              //then append each game based on the id
