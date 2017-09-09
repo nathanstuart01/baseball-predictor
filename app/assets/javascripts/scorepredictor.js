@@ -7,6 +7,7 @@ $(document).ready(function (){
   var names = [];
   var wars = [];
 
+
       $.ajax({
         url: "/games",
         type: "GET",
@@ -45,12 +46,11 @@ $(document).ready(function (){
             for (x = 0; x < games.length; x ++) {
               for (i = 0; i < teams.length; i++) {
                 if ( teams[i].name === games[x].away_team || teams[i].name === games[x].home_team ) {
-                    gamesData.push(teams[i].name, teams[i].total_war);
-                    console.log(gamesData);
+                    gamesData.push(teams[i].name, teams[i].total_war, games[x].game_info);
                  }
               }
             }
-
+            console.log(gamesData);
             if(typeof callback === "function") {
               callback();
             }
@@ -66,14 +66,18 @@ $(document).ready(function (){
 //        }
 
         function allGames() {
-         for (var c = 0; c < gamesData.length; c = c +4) {
+
+
+         for (var c = 0; c < gamesData.length; c = c +6) {
 // alternate way to acheieve same result, see belwo
 //            allGamesData.push(new Game(gamesData[c], gamesData[c +1], gamesData[c +2], gamesData[c +3] ))
             allGamesData.push(
               {"teamOne": gamesData[c],
               "teamOneWar": gamesData[c +1],
-              "teamTwo": gamesData[c +2],
-              "teamTwoWar": gamesData[c +3] }
+              "teamTwo": gamesData[c +3],
+              "teamTwoWar": gamesData[c +4],
+              "gameInfo": gamesData[c +5]
+             }
               )
          }
          console.log(allGamesData);
@@ -106,15 +110,13 @@ $(document).ready(function (){
                winnerAdder();
 
 
-              //      $(this).append('<li>' + names[x] + '</li>'); something with this is whats next
-              //perhaps make a new function that is called that appends the list items after they are added to the array
 
 
      }
 
      function winnerAdder() {
-       for (var c = 0; c <names.length; c ++) {
-         $('.predictedWinner').append(names[c]);
+       for (var c = 0; c <names.length; c = c +1) {
+         $('.predictedWinner').append(names[c + 1]);
        }
      }
              // need to make a new id each time, that is tied to my list item in rails
