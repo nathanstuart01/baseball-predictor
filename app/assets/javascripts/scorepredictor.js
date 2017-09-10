@@ -6,7 +6,7 @@ $(document).ready(function (){
   var allGamesData = [];
   var names = [];
   var wars = [];
-
+  var gameConvert = [];
 
       $.ajax({
         url: "/games",
@@ -15,6 +15,11 @@ $(document).ready(function (){
         data: {}
    }).done(function(games) {
         gameInfo = games;
+
+        for (l = 0; l < gameInfo.length; l ++) {
+          gameConvert.push(new Date(gameInfo[l]["game_info"]).toLocaleString());
+                   }
+                   console.log(gameConvert);
         console.log(gameInfo);
    }).fail(function(data) {
         console.log("Data Did Not Load");
@@ -66,7 +71,7 @@ $(document).ready(function (){
 //        }
 
         function allGames() {
-
+          var lewis;
 
          for (var c = 0; c < gamesData.length; c = c +6) {
 // alternate way to acheieve same result, see belwo
