@@ -6,7 +6,6 @@ $(document).ready(function (){
   var allGamesData = [];
   var names = [];
   var wars = [];
-  var gameConvert = [];
 
       $.ajax({
         url: "/games",
@@ -15,11 +14,6 @@ $(document).ready(function (){
         data: {}
    }).done(function(games) {
         gameInfo = games;
-
-        for (l = 0; l < gameInfo.length; l ++) {
-          gameConvert.push(new Date(gameInfo[l]["game_info"]).toLocaleString());
-                   }
-                   console.log(gameConvert);
         console.log(gameInfo);
    }).fail(function(data) {
         console.log("Data Did Not Load");
@@ -51,7 +45,7 @@ $(document).ready(function (){
             for (x = 0; x < games.length; x ++) {
               for (i = 0; i < teams.length; i++) {
                 if ( teams[i].name === games[x].away_team || teams[i].name === games[x].home_team ) {
-                    gamesData.push(teams[i].name, teams[i].total_war, games[x].game_info);
+                    gamesData.push(teams[i].name, teams[i].total_war, new Date(games[x].game_info).toLocaleTimeString());
                  }
               }
             }
@@ -77,11 +71,12 @@ $(document).ready(function (){
 // alternate way to acheieve same result, see belwo
 //            allGamesData.push(new Game(gamesData[c], gamesData[c +1], gamesData[c +2], gamesData[c +3] ))
             allGamesData.push(
-              {"teamOne": gamesData[c],
+              {
+              "gameInfo": gamesData[c +5],
+              "teamOne": gamesData[c],
               "teamOneWar": gamesData[c +1],
               "teamTwo": gamesData[c +3],
-              "teamTwoWar": gamesData[c +4],
-              "gameInfo": gamesData[c +5]
+              "teamTwoWar": gamesData[c +4]
              }
               )
          }
