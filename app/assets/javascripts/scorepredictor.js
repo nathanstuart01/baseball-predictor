@@ -86,44 +86,65 @@ $(document).ready(function (){
 
       function warCalculator() {
 
-        for ( var c = 0; c < allGamesData.length; c ++) {
+        for ( a = 0; a < gameInfo.length; a ++ ) {
 
-            var teamInfo1 = allGamesData[c]["teamOne"];
-            var teamInfo1War = allGamesData[c]["teamOneWar"];
-            var teamInfo2 = allGamesData[c]["teamTwo"];
-            var teamInfo2War = allGamesData[c]["teamTwoWar"];
-            var list = $('#predictedWinner');
-            var parent = list.parent();
+          var gameInfoAwayTeam = gameInfo[a]["away_team"];
+          var gameInfoHomeTeam = gameInfo[a]["home_team"];
+          var gameInfoTime = gameInfo[a]["game_info"];
 
-               if (teamInfo1War > teamInfo2War) {
-                  console.log(teamInfo1, teamInfo1War);
-                  names.push(teamInfo1);
-                  wars.push(teamInfo1War);
-                    }  else  {
-                  console.log(teamInfo2, teamInfo2War);
-                  names.push(teamInfo2);
-                  wars.push(teamInfo2War);
-                 }
-               }
-               console.log(names);
-               console.log(wars);
-               winnerAdder();
+          $('.gameInfoClass').append('<li>' + gameInfoAwayTeam + '@' + gameInfoHomeTeam + '</li>');
+              }
 
+              for ( var c = 0; c < allGamesData.length; c ++) {
 
+            //      var gameInfo = allGamesData[c]["gameInfo"];
+                  var teamInfo1 = allGamesData[c]["teamOne"];
+                  var teamInfo1War = allGamesData[c]["teamOneWar"];
+                  var teamInfo2 = allGamesData[c]["teamTwo"];
+                  var teamInfo2War = allGamesData[c]["teamTwoWar"];
+
+                     if (teamInfo1War > teamInfo2War) {
+
+                        console.log(teamInfo1, teamInfo1War);
+                        $('.predictedWinner').append('<li>' + teamInfo1 + '</li>');
+                        $('.predictedWinner').append('<br />');
 
 
-     }
+                          }  else  {
 
-     function winnerAdder() {
-       for (var c = 0; c <names.length; c = c +1) {
-         $('.predictedWinner').append(names[c + 1]);
-       }
-     }
-             // need to make a new id each time, that is tied to my list item in rails
-             // need to figure out how to only add one value for each team to its corresponding list item,
-             // perhaps make each game an id css element, base that on games length,
-             //then append each game based on the id
-        //loop through games object
+                        console.log(teamInfo2, teamInfo2War);
+                        $('.predictedWinner').append('<li>' + teamInfo2 + '</li>');
+                        $('.predictedWinner').append('<br />');
+
+                          }
+                        }
+
+      }
+
+                for ( var c = 0; c < allGamesData.length; c ++) {
+
+              //      var gameInfo = allGamesData[c]["gameInfo"];
+                    var teamInfo1 = allGamesData[c]["teamOne"];
+                    var teamInfo1War = allGamesData[c]["teamOneWar"];
+                    var teamInfo2 = allGamesData[c]["teamTwo"];
+                    var teamInfo2War = allGamesData[c]["teamTwoWar"];
+
+                       if (teamInfo1War > teamInfo2War) {
+
+                          console.log(teamInfo1, teamInfo1War);
+                          $('.predictedWinner').append('<li>' + teamInfo1 + '</li>');
+                          $('.predictedWinner').append('<br />');
+
+
+                            }  else  {
+
+                          console.log(teamInfo2, teamInfo2War);
+                          $('.predictedWinner').append('<li>' + teamInfo2 + '</li>');
+                          $('.predictedWinner').append('<br />');
+
+                            }
+                          }
+
         //each game gets the x value from the loop
         // take team 1 war and subtract team 2 war from it
         // if result is less than 0, multiply result by -1

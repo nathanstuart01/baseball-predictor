@@ -13,7 +13,7 @@
           <br />
           <li>First Pitch: <%= game.game_info.strftime("%l:%M") %> MST </li>
           <br />
-          <li class="predictedWinner"></li>
+
 
         </ul>
 
@@ -23,6 +23,15 @@
     <h5> No Games Scheduled For Today</h5>
 
   <% end %>
+
+  <div>
+    <ul class="gameInfoClass">
+      <ul class="predictedWinner">
+      </ul>
+    </ul>
+  </div>
+
+
 
     <%= link_to "Team War Info", teams_path %>
 </body>
