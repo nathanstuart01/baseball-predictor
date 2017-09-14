@@ -4,30 +4,10 @@
 <body>
 <h3>Today's Games:</h3>
 
-  <% if @games.present? %>
-
-      <% @games.each do |game| %>
-
-        <ul>
-          <li> <%= game.away_team %> @ <%= game.home_team %> </li>
-          <br />
-          <li>First Pitch: <%= game.game_info.strftime("%l:%M") %> MST </li>
-          <br />
-
-
-        </ul>
-
-    <% end %>
-  <% else %>
-
-    <h5> No Games Scheduled For Today</h5>
-
-  <% end %>
 
   <div>
     <ul class="gameInfoClass">
-      <ul class="predictedWinner">
-      </ul>
+      <ul class="predictedWinner"></ul>
     </ul>
   </div>
 
