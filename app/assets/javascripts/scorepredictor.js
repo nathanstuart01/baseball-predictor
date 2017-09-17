@@ -4,8 +4,6 @@ $(document).ready(function (){
   var teamData;
   var gamesData = [];
   var allGamesData = [];
-  var names = [];
-  var wars = [];
 
       $.ajax({
         url: "/games",
@@ -44,7 +42,7 @@ $(document).ready(function (){
 
             for (x = 0; x < games.length; x ++) {
               for (i = 0; i < teams.length; i++) {
-                if ( teams[i].name === games[x].away_team || teams[i].name === games[x].home_team ) {
+                if ( games[x].away_team === teams[i].name || games[x].home_team === teams[i].name ) {
                     gamesData.push(teams[i].name, teams[i].total_war, new Date(games[x].game_info).toLocaleTimeString());
                  }
               }
@@ -55,21 +53,11 @@ $(document).ready(function (){
             }
         }
 
-// alternate way to acheieve same games array result, create an object protoype
-
-//        function Game(team1, team1War, team2, team2War) {
-//            this.teamOne = team1;
-//            this.teamOneWar = team1War;
-//            this.teamTwo = team2;
-//            this.teamTwoWar = team2War;
-//        }
-
         function allGames() {
-          var lewis;
+
 
          for (var c = 0; c < gamesData.length; c = c +6) {
-// alternate way to acheieve same result, see belwo
-//            allGamesData.push(new Game(gamesData[c], gamesData[c +1], gamesData[c +2], gamesData[c +3] ))
+
             allGamesData.push(
               {
               "gameInfo": gamesData[c +5],
@@ -85,31 +73,37 @@ $(document).ready(function (){
      }
 
       function warCalculator() {
+        console.log(gameInfo);
+        for ( c = 0; c < gameInfo.length; c ++ )  {
+            var homeTeam = gameInfo[c]["home_team"];
+            var awayTeam = gameInfo[c]["away_team"];
+            var gameInfo = gameInfo[c]["game_info"];
 
-                  for ( a = 0; a < gameInfo.length; a ++ ) {
+            $('.gameInformation').append('<li>' + awayTeam + '@' + homeTeam + '</li>');
 
-                    var gameInfoAwayTeam = gameInfo[a]["away_team"];
-                    var gameInfoHomeTeam = gameInfo[a]["home_team"];
-                    var gameInfoTime = gameInfo[a]["game_info"];
+            for ( var c = 0; c < allGamesData.length; c ++) {
 
-                    $('.gameInfoClass').append('<li>' + gameInfoAwayTeam + ' @ ' + gameInfoHomeTeam + '</li>');
-                        }
+              var teamInfo1 = allGamesData[c]["teamOne"];
+              var teamInfo1War = allGamesData[c]["teamOneWar"];
+              var teamInfo2 = allGamesData[c]["teamTwo"];
+              var teamInfo2War = allGamesData[c]["teamTwoWar"];
 
-                  for ( var c = 0; c < allGamesData.length; c ++) {
-                            var teamInfo1 = allGamesData[c]["teamOne"];
-                            var teamInfo1War = allGamesData[c]["teamOneWar"];
-                            var teamInfo2 = allGamesData[c]["teamTwo"];
-                            var teamInfo2War = allGamesData[c]["teamTwoWar"];
+                if (teamInfo1War > teamInfo2War) {
 
-                               if (teamInfo1War > teamInfo2War) {
-                                  console.log(teamInfo1, teamInfo1War);
-                                  $('.predictedWinner').prepend('<li>' + teamInfo1 + '</li>');
-                                    }  else  {
-                                  console.log(teamInfo2, teamInfo2War);
-                                  $('.predictedWinner').prepend('<li>' + teamInfo2 + '</li>');
-                                    }
-                                  }
-                                }
+                console.log(teamInfo1, teamInfo1War);
+                $('.predictedWinner').append('<li>' + teamInfo1 + '</li>');
+
+                }  else  {
+
+                console.log(teamInfo2, teamInfo2War);
+                $('.predictedWinner').append('<li>' + teamInfo2 + '</li>');
+                }
+
+
+              }
+            }
+
+            }
 
 
 
