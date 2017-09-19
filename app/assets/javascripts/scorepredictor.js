@@ -69,41 +69,40 @@ $(document).ready(function (){
               )
          }
          console.log(allGamesData);
-         warCalculator();
+         gameDisplayer();
      }
 
+      function gameDisplayer() {
+
+      var newDiv = document.createElement("div");
+      var newContent = document.createTextNode("Hi there and greetings!");
+      newDiv.appendChild(newContent); //add the text node to the newly created div.
+
+      var currentDiv = document.getElementById("gameInformation");
+      document.body.insertBefore(newDiv, currentDiv);
+    }
+
+    //    for (var a = 0; a < gameInfo.length; a ++ ) {
+    //      var gameInfoAwayTeam = gameInfo[a]["away_team"];
+    //      var gameInfoHomeTeam = gameInfo[a]["home_team"];
+    //      var gameInfoTime = gameInfo[a]["game_info"];
+    //      $('.gameInformation').append('<li>' + gameInfoAwayTeam + '@' + gameInfoHomeTeam + '</li>');
+
+    //          }
+
+    //        }
+
       function warCalculator() {
-        console.log(gameInfo);
-        for ( c = 0; c < gameInfo.length; c ++ )  {
-            var homeTeam = gameInfo[c]["home_team"];
-            var awayTeam = gameInfo[c]["away_team"];
-            var gameInfo = gameInfo[c]["game_info"];
+        for (var b = 0; b < allGamesData.length; b ++) {
+          var teamInfo1 = allGamesData[b]["teamOne"];
+          var teamInfo2 = allGamesData[b]["teamTwo"];
+          var teamWar1 = allGamesData[b]["teamOneWar"];
+          var teamWar2 = allGamesData[b]["teamTwoWar"];
+          var p = $('.gameInformation');
+        document.body.appendChild('<li>' + teamInfo1 + '</li>');
 
-            $('.gameInformation').append('<li>' + awayTeam + '@' + homeTeam + '</li>');
-
-            for ( var c = 0; c < allGamesData.length; c ++) {
-
-              var teamInfo1 = allGamesData[c]["teamOne"];
-              var teamInfo1War = allGamesData[c]["teamOneWar"];
-              var teamInfo2 = allGamesData[c]["teamTwo"];
-              var teamInfo2War = allGamesData[c]["teamTwoWar"];
-
-                if (teamInfo1War > teamInfo2War) {
-
-                console.log(teamInfo1, teamInfo1War);
-                $('.predictedWinner').append('<li>' + teamInfo1 + '</li>');
-
-                }  else  {
-
-                console.log(teamInfo2, teamInfo2War);
-                $('.predictedWinner').append('<li>' + teamInfo2 + '</li>');
-                }
-
-
-              }
-            }
-
-            }
+        }
+      }
 
 
 
