@@ -74,23 +74,27 @@ $(document).ready(function (){
 
       function gameDisplayer() {
 
-      var newDiv = document.createElement("div");
-      var newContent = document.createTextNode("Hi there and greetings!");
-      newDiv.appendChild(newContent); //add the text node to the newly created div.
 
-      var currentDiv = document.getElementById("gameInformation");
-      document.body.insertBefore(newDiv, currentDiv);
-    }
 
-    //    for (var a = 0; a < gameInfo.length; a ++ ) {
-    //      var gameInfoAwayTeam = gameInfo[a]["away_team"];
-    //      var gameInfoHomeTeam = gameInfo[a]["home_team"];
-    //      var gameInfoTime = gameInfo[a]["game_info"];
-    //      $('.gameInformation').append('<li>' + gameInfoAwayTeam + '@' + gameInfoHomeTeam + '</li>');
+       for (var a = 0; a < gameInfo.length; a ++ ) {
+         var gameInfoAwayTeam = gameInfo[a]["away_team"];
+          var gameInfoHomeTeam = gameInfo[a]["home_team"];
+          var gameInfoTime = gameInfo[a]["game_info"];
 
-    //          }
+          var currentDiv = document.getElementById("gameInformation");
+          var newTdElement = document.createElement("td");
+          var newContent = document.createTextNode(gameInfoAwayTeam + '@' + gameInfoHomeTeam);
+          currentDiv.appendChild(newTdElement);
+          newTdElement.append(newContent);
 
-    //        }
+          var currentDiv2 = document.getElementById("firstPitchInformation");
+          var newTdElement2 = document.createElement("td");
+          var newContent2 = document.createTextNode(new Date(gameInfoTime).toLocaleTimeString());
+          currentDiv2.appendChild(newTdElement2);
+          newTdElement2.append(newContent2);
+              }
+          }
+
 
       function warCalculator() {
         for (var b = 0; b < allGamesData.length; b ++) {
