@@ -2,19 +2,20 @@
 <%= stylesheet_link_tag "teamstyles" %>
 
 <body>
-  <ul id="predictedWinner">
-  </ul>
-  <table>
-      <th>Today's Games</th>
-      <tr id="gameInformation"></tr>
-      <th>First Pitch</th>
-      <tr id='firstPitchInformation'></tr>
-      <th>PredictedWinner</th>
-      <tr id='predictedGameWinner'></td>
-      <th>Percent Chance of Winning</th>
-      <tr id='predictedWinnerWinPercentage'></tr>
-  </table>
+  <div id="gameInformation2">
+    <h3>Teams Playing</h3>
+  </div>
+  <div id="firstPitchInformation2">
+    <h3>First Pitch</h3>
+  </div>
+  <div id="predictedWinner2">
+    <h3>Predicted Winner</h3>
+  </div>
+  <div id="percentChanceWinner2">
+    <h3>Percent Chance of Winning</h3>
+  </div>
 
+  <div id="teamWarLink">
+<%= link_to "Team War Info", teams_path %>
+  </div>
 </body>
-
-  <%= link_to "Team War Info", teams_path %>

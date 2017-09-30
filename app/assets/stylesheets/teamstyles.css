@@ -2,3 +2,19 @@
   text-decoration: none;
   color: black;
 }
+
+#gameInformation2 {
+  display: inline-block;
+}
+
+#firstPitchInformation2 {
+  display: inline-block;
+}
+
+#predictedWinner2 {
+  display: inline-block;
+}
+
+#percentChanceWinner2 {
+  display: inline-block;
+}
