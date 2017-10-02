@@ -103,36 +103,80 @@ $(document).ready(function (){
               let newUlElement3 = document.createElement("ul");
               let newContent3 = document.createTextNode(team1);
               let newContent4 = document.createTextNode(team2);
-              let newContent5 = document.createTextNode(team2);
+              let newContent5 = document.createTextNode(neitherTeam);
 
               if (team1War > team2War) {
                 currentDiv3.appendChild(newUlElement3);
                 newUlElement3.append(newContent3);
-              } if ( team1War === team2War) {
-                currentDiv3.appendChild(newUlElement3);
-                newUlElement3.append(neitherTeam);
               }
-              else {
+              else if (team2War > team1War) {
                 currentDiv3.appendChild(newUlElement3);
                 newUlElement3.append(newContent4);
               }
+              else {
+                currentDiv3.appendChild(newUlElement3);
+                newUlElement3.append(newContent5);
+              }
             }
-
             winCalculator();
           }
 
           function winCalculator() {
-            //setup something simliar to gameWinnerPredictor
-            // assign values and based on the difference betweeen war scores, append the different variable values
-            // let percent1 = 'Even, if wars equal%'
-            // let percent2 = '55%, if war only 1-5 greater'
-            // let percent3 = '60%, if war only 6-10 greater'
-            // let percent4 = '65%, if war only 11-15 greater'
-            // let percent5 = '70%, if war only 16-20 greater'
-            // let percent6 = '75%, if war only 21-25 greater'
-            // let percent7 = '80%, if war only 26-30 greater'
-            // let percent8 = '85%, if war only 31-35 greater'
-            // let percent9 = '90%, if war only 36-40 greater'
-            // let percent10 = '99%, if war only 41 or greater'
+
+            for (let a = 0; a < allGamesData.length; a ++) {
+              let team1War = allGamesData[a]["teamOneWar"];
+              let team2War = allGamesData[a]["teamTwoWar"];
+              let currentDiv3 = document.getElementById("percentChanceWinner2");
+              let newUlElement3 = document.createElement("ul");
+              let newContent3 = document.createTextNode(team1War);
+              let newContent4 = document.createTextNode(team2War);
+              let newContent55 = document.createTextNode("55% Chance of Winning");
+              let newContent60 = document.createTextNode("60% Chance of Winning");
+              let newContent65 = document.createTextNode("65% Chance of Winning");
+              let newContent70 = document.createTextNode("70% Chance of Winning");
+              let newContent75 = document.createTextNode("75% Chance of Winning");
+              let newContent80 = document.createTextNode("80% Chance of Winning");
+              let newContent85 = document.createTextNode("85% Chance of Winning");
+              let newContent90 = document.createTextNode("90% Chance of Winning");
+              let newContent99 = document.createTextNode("99% Chance of Winning");
+              let push = document.createTextNode("Both Teams Equal Chance of Winning");
+
+              let warDifferencesValues = eval(team1War - team2War);
+              let warAbsoluteValues = Math.abs(warDifferencesValues);
+              console.log(warAbsoluteValues);
+
+              if (warAbsoluteValues >= 1 && warAbsoluteValues <= 5) {
+                currentDiv3.appendChild(newUlElement3);
+                newUlElement3.append(newContent55);
+              } else if (warAbsoluteValues >= 6 && warAbsoluteValues <= 10) {
+                currentDiv3.appendChild(newUlElement3);
+                newUlElement3.append(newContent60);
+              } else if (warAbsoluteValues >= 11 && warAbsoluteValues <= 15) {
+                currentDiv3.appendChild(newUlElement3);
+                newUlElement3.append(newContent65);
+              } else if (warAbsoluteValues >= 16 && warAbsoluteValues <= 20) {
+                currentDiv3.appendChild(newUlElement3);
+                newUlElement3.append(newContent70);
+              } else if (warAbsoluteValues >= 21 && warAbsoluteValues <= 25) {
+                currentDiv3.appendChild(newUlElement3);
+                newUlElement3.append(newContent75);
+              } else if (warAbsoluteValues >= 26 && warAbsoluteValues <= 30) {
+                currentDiv3.appendChild(newUlElement3);
+                newUlElement3.append(newContent80);
+              } else if (warAbsoluteValues >= 31 && warAbsoluteValues <= 35) {
+                currentDiv3.appendChild(newUlElement3);
+                newUlElement3.append(newContent85);
+              } else if (warAbsoluteValues >= 36 && warAbsoluteValues <= 40) {
+                currentDiv3.appendChild(newUlElement3);
+                newUlElement3.append(newContent90);
+              } else if (warAbsoluteValues >= 40) {
+                currentDiv3.appendChild(newUlElement3);
+                newUlElement3.append(newContent99);
+              } else {
+                currentDiv3.appendChild(newUlElement3);
+                newUlElement3.append(push);
+              }
+            }
           }
+
   });

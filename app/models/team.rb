@@ -20,12 +20,4 @@ class Team < ApplicationRecord
                 }).body
   end
 
-  def self.win_predictor(total_war1, total_war2)
-      raw_win_difference = total_war1 - total_war2
-      if raw_win_difference < 0
-        @total_war_difference = raw_win_difference * -1
-      else
-        @total_war_difference = raw_win_difference * 1
-      end
-  end
 end
