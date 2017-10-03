@@ -143,33 +143,34 @@ $(document).ready(function (){
 
               let warDifferencesValues = eval(team1War - team2War);
               let warAbsoluteValues = Math.abs(warDifferencesValues);
-              console.log(warAbsoluteValues);
+              let warAbsoluteValuesRounded = Math.round(warAbsoluteValues * 10 ) / 10;
+              console.log(warAbsoluteValuesRounded);
 
-              if (warAbsoluteValues >= 1 && warAbsoluteValues <= 5) {
+              if (warAbsoluteValuesRounded > 0.00 && warAbsoluteValuesRounded <= 5.99) {
                 currentDiv3.appendChild(newUlElement3);
                 newUlElement3.append(newContent55);
-              } else if (warAbsoluteValues >= 6 && warAbsoluteValues <= 10) {
+              } else if (warAbsoluteValuesRounded >= 6.00 && warAbsoluteValuesRounded <= 10.99) {
                 currentDiv3.appendChild(newUlElement3);
                 newUlElement3.append(newContent60);
-              } else if (warAbsoluteValues >= 11 && warAbsoluteValues <= 15) {
+              } else if (warAbsoluteValuesRounded >= 11.00 && warAbsoluteValuesRounded <= 15.99) {
                 currentDiv3.appendChild(newUlElement3);
                 newUlElement3.append(newContent65);
-              } else if (warAbsoluteValues >= 16 && warAbsoluteValues <= 20) {
+              } else if (warAbsoluteValuesRounded >= 16.00 && warAbsoluteValuesRounded <= 20.99) {
                 currentDiv3.appendChild(newUlElement3);
                 newUlElement3.append(newContent70);
-              } else if (warAbsoluteValues >= 21 && warAbsoluteValues <= 25) {
+              } else if (warAbsoluteValuesRounded >= 21.00 && warAbsoluteValuesRounded <= 25.99) {
                 currentDiv3.appendChild(newUlElement3);
                 newUlElement3.append(newContent75);
-              } else if (warAbsoluteValues >= 26 && warAbsoluteValues <= 30) {
+              } else if (warAbsoluteValuesRounded >= 26.00 && warAbsoluteValuesRounded <= 30.99) {
                 currentDiv3.appendChild(newUlElement3);
                 newUlElement3.append(newContent80);
-              } else if (warAbsoluteValues >= 31 && warAbsoluteValues <= 35) {
+              } else if (warAbsoluteValuesRounded >= 31.00 && warAbsoluteValuesRounded <= 35.99) {
                 currentDiv3.appendChild(newUlElement3);
                 newUlElement3.append(newContent85);
-              } else if (warAbsoluteValues >= 36 && warAbsoluteValues <= 40) {
+              } else if (warAbsoluteValuesRounded >= 36.00 && warAbsoluteValuesRounded <= 40.99) {
                 currentDiv3.appendChild(newUlElement3);
                 newUlElement3.append(newContent90);
-              } else if (warAbsoluteValues >= 40) {
+              } else if (warAbsoluteValuesRounded >= 41) {
                 currentDiv3.appendChild(newUlElement3);
                 newUlElement3.append(newContent99);
               } else {
