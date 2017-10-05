@@ -5,16 +5,40 @@
 
 #gameInformation2 {
   display: inline-block;
+  margin-top: 50px;
+  margin-right: 10px;
+  margin-left: 150px;
+  font-family: sans-serif;
 }
 
 #firstPitchInformation2 {
   display: inline-block;
+  margin-right: 10px;
+  font-family: sans-serif;
 }
 
 #predictedWinner2 {
   display: inline-block;
+  margin-right: 10px;
+  font-family: sans-serif;
 }
 
 #percentChanceWinner2 {
   display: inline-block;
+  font-family: sans-serif;
+}
+
+#gamesIndex {
+  border: 10px solid #5259e9;
+  border-style: ridge;
+}
+
+#teamWarLink {
+margin-left: 150px;
+margin-top: 20px;
+font-family: sans-serif;
+}
+
+#breakLine {
+  margin: 20px;
 }

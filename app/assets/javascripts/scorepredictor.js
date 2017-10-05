@@ -78,13 +78,13 @@ $(document).ready(function (){
               let gameInfoTime = gameInfo[a]["game_info"];
 
               let currentDiv = document.getElementById("gameInformation2");
-              let newUlElement = document.createElement("ul");
+              let newUlElement = document.createElement("h4");
               let newContent = document.createTextNode(gameInfoAwayTeam + ' @ ' + gameInfoHomeTeam);
               currentDiv.appendChild(newUlElement);
               newUlElement.append(newContent);
 
               let currentDiv2 = document.getElementById("firstPitchInformation2");
-              let newUlElement2 = document.createElement("ul");
+              let newUlElement2 = document.createElement("h4");
               let newContent2 = document.createTextNode(new Date(gameInfoTime).toLocaleTimeString());
               currentDiv2.appendChild(newUlElement2);
               newUlElement2.append(newContent2);
@@ -100,7 +100,7 @@ $(document).ready(function (){
               let team1War = allGamesData[a]["teamOneWar"];
               let team2War = allGamesData[a]["teamTwoWar"];
               let currentDiv3 = document.getElementById("predictedWinner2");
-              let newUlElement3 = document.createElement("ul");
+              let newUlElement3 = document.createElement("h4");
               let newContent3 = document.createTextNode(team1);
               let newContent4 = document.createTextNode(team2);
               let newContent5 = document.createTextNode(neitherTeam);
@@ -127,7 +127,7 @@ $(document).ready(function (){
               let team1War = allGamesData[a]["teamOneWar"];
               let team2War = allGamesData[a]["teamTwoWar"];
               let currentDiv3 = document.getElementById("percentChanceWinner2");
-              let newUlElement3 = document.createElement("ul");
+              let newUlElement3 = document.createElement("h4");
               let newContent3 = document.createTextNode(team1War);
               let newContent4 = document.createTextNode(team2War);
               let newContent55 = document.createTextNode("55% Chance of Winning");
