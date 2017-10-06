@@ -60,5 +60,10 @@ font-family: sans-serif;
 
 #indexHeading {
     font-family: sans-serif;
-    margin-left: 37%;
+    margin-left: 35%;
+}
+
+#scorepredictorFooter {
+  margin-left: 35%;
+  font-family: sans-serif;
 }

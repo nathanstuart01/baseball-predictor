@@ -1,8 +1,11 @@
 <%= javascript_include_tag "scorepredictor" %>
 <%= stylesheet_link_tag "teamstyles" %>
+<head>
+  <title>Baseball Game Predictions</title>
+</head>
 
 <body id="gamesIndex">
-  <h2 id="indexHeading">MLB Game Predictions</h2>
+  <h2 id="indexHeading">Today's MLB Game Predictions</h2>
   <div id="gameInformation2">
     <h3>Teams Playing</h3>
   </div>
@@ -17,6 +20,10 @@
   </div>
   <hr id="breakLine" />
   <div id="teamWarLink">
-<h3><%= link_to "Team Data", teams_path %></h3>
+    <h3><%= link_to "Team Data", teams_path %></h3>
   </div>
+  <footer id='scorepredictorFooter'>
+  <p><b>Baseball Score Predictor Created By <a href="mailto:nathanstuart01@gmail.com">
+  Nathan Stuart</a></b></p>
+</footer>
 </body>
