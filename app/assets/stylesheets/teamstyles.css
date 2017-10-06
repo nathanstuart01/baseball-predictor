@@ -5,7 +5,7 @@
 
 #gameInformation2 {
   display: inline-block;
-  margin-top: 50px;
+  margin-top: 10px;
   margin-right: 10px;
   margin-left: 150px;
   font-family: sans-serif;
@@ -21,12 +21,27 @@
   display: inline-block;
   margin-right: 10px;
   font-family: sans-serif;
+  color: red;
+}
+
+#predictedWinner2Heading {
+  margin-right: 10px;
+  font-family: sans-serif;
+  color: black;
 }
 
 #percentChanceWinner2 {
   display: inline-block;
   font-family: sans-serif;
+  color: red;
 }
+
+#percentChanceWinner2Heading {
+  font-family: sans-serif;
+  color: black;
+}
+
+
 
 #gamesIndex {
   border: 10px solid #5259e9;
@@ -41,4 +56,9 @@ font-family: sans-serif;
 
 #breakLine {
   margin: 20px;
+}
+
+#indexHeading {
+    font-family: sans-serif;
+    margin-left: 37%;
 }

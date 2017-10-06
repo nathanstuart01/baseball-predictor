@@ -72,6 +72,7 @@ $(document).ready(function (){
          gameDisplayer();
      }
           function gameDisplayer() {
+            
            for (let a = 0; a < gameInfo.length; a ++ ) {
              let gameInfoAwayTeam = gameInfo[a]["away_team"];
               let gameInfoHomeTeam = gameInfo[a]["home_team"];
