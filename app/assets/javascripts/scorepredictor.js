@@ -25,13 +25,15 @@ $(document).ready(function (){
     }).done(function(teams) {
         teamData = teams;
         console.log(teamData);
+        while (teamData.length < 30) {
+          alert("Data Loading...");
+        }
         if (teamData.length === 30) {
           teamsMatcher(allGames);
-        } else {
-          alert("Data Loading...");
         }
     }).fail(function(data) {
         console.log("Data Did Not Load");
+        alert("Data is currently loading, please refresh your browser to display data");
       });
 
       function teamsMatcher(callback) {
@@ -39,7 +41,9 @@ $(document).ready(function (){
           var games = gameInfo;
           var x;
           var i;
-
+            if (games.length != gameInfo.length) {
+              alert("Data is currently loading, please refresh your browser to display data");
+            } else {
             for (x = 0; x < games.length; x ++) {
               for (i = 0; i < teams.length; i++) {
                 if ( games[x].away_team === teams[i].name || games[x].home_team === teams[i].name ) {
@@ -47,6 +51,7 @@ $(document).ready(function (){
                  }
               }
             }
+          }
             console.log(gamesData);
             if(typeof callback === "function") {
               callback();
@@ -72,7 +77,7 @@ $(document).ready(function (){
          gameDisplayer();
      }
           function gameDisplayer() {
-            
+
            for (let a = 0; a < gameInfo.length; a ++ ) {
              let gameInfoAwayTeam = gameInfo[a]["away_team"];
               let gameInfoHomeTeam = gameInfo[a]["home_team"];

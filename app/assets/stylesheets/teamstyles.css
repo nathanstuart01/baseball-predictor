@@ -46,12 +46,26 @@
 #gamesIndex {
   border: 10px solid #5259e9;
   border-style: ridge;
+  background: #fff9ed;
 }
 
 #teamWarLink {
-margin-left: 150px;
+margin-left: 40%;
 margin-top: 20px;
 font-family: sans-serif;
+}
+
+#appInfo {
+margin-left: 150px;
+margin-right: 150px;
+margin-top: 20px;
+font-family: sans-serif;
+}
+
+br {
+  content: " ";
+  display: block;
+  margin: 5px;
 }
 
 #breakLine {
