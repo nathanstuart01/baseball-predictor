@@ -25,11 +25,10 @@ $(document).ready(function (){
     }).done(function(teams) {
         teamData = teams;
         console.log(teamData);
-        while (teamData.length < 30) {
-          alert("Data Loading...");
-        }
         if (teamData.length === 30) {
           teamsMatcher(allGames);
+        } else {
+        alert("Data is currently loading, please refresh your browser to display data");
         }
     }).fail(function(data) {
         console.log("Data Did Not Load");
@@ -41,7 +40,7 @@ $(document).ready(function (){
           var games = gameInfo;
           var x;
           var i;
-            if (games.length != gameInfo.length) {
+            if (games === undefined) {
               alert("Data is currently loading, please refresh your browser to display data");
             } else {
             for (x = 0; x < games.length; x ++) {
