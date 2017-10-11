@@ -1,9 +1,9 @@
 $(document).ready(function (){
 
-  var gameInfo;
-  var teamData;
-  var gamesData = [];
-  var allGamesData = [];
+  let gameInfo;
+  let teamData;
+  let gamesData = [];
+  let allGamesData = [];
 
       $.ajax({
         url: "/games",
@@ -27,6 +27,8 @@ $(document).ready(function (){
         console.log(teamData);
         if (teamData.length === 30) {
           teamsMatcher(allGames);
+        } else if (teamData.length === 30 && gameInfo.length === 1 ) {
+          noGamesDisplay();
         } else {
         alert("Data is currently loading, please refresh your browser to display data");
         }
@@ -36,10 +38,10 @@ $(document).ready(function (){
       });
 
       function teamsMatcher(callback) {
-          var teams = teamData;
-          var games = gameInfo;
-          var x;
-          var i;
+          let teams = teamData;
+          let games = gameInfo;
+          let x;
+          let i;
             if (games === undefined) {
               alert("Data is currently loading, please refresh your browser to display data");
             } else {
@@ -76,7 +78,6 @@ $(document).ready(function (){
          gameDisplayer();
      }
           function gameDisplayer() {
-
            for (let a = 0; a < gameInfo.length; a ++ ) {
              let gameInfoAwayTeam = gameInfo[a]["away_team"];
               let gameInfoHomeTeam = gameInfo[a]["home_team"];
@@ -183,6 +184,15 @@ $(document).ready(function (){
                 newUlElement3.append(push);
               }
             }
+          }
+
+          function noGamesDisplay() {
+            let currentDivNoGame = document.getElementById("gameInformation2");
+            let newUlElementNoGame = document.createElement("h4");
+            let newContentNoGame = document.createTextNode("No Scheduled Games Today To Predict");
+            currentDivNoGame.appendChild(newUlElementNoGame);
+            newUlElementNoGame.append(newContentNoGame);
+
           }
 
   });
