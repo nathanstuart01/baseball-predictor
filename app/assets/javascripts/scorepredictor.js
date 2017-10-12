@@ -27,8 +27,6 @@ $(document).ready(function (){
         console.log(teamData);
         if (teamData.length === 30) {
           teamsMatcher(allGames);
-        } else if (teamData.length === 30 && gameInfo.length === 1 ) {
-          noGamesDisplay();
         } else {
         alert("Data is currently loading, please refresh your browser to display data");
         }
@@ -185,14 +183,4 @@ $(document).ready(function (){
               }
             }
           }
-
-          function noGamesDisplay() {
-            let currentDivNoGame = document.getElementById("gameInformation2");
-            let newUlElementNoGame = document.createElement("h4");
-            let newContentNoGame = document.createTextNode("No Scheduled Games Today To Predict");
-            currentDivNoGame.appendChild(newUlElementNoGame);
-            newUlElementNoGame.append(newContentNoGame);
-
-          }
-
-  });
+      });

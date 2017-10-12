@@ -4,6 +4,38 @@
     <title>  <%= image_tag("mlblogo.jpg", width: "10px") %></title>
 </head>
 
+<% if @games.length == 0 %>
+<body id="gamesIndex">
+  <h2 id="indexHeading">Today's MLB Game Predictions</h2>
+  <div id="noGameAnnouncement">
+    <h3>There are no scheduled games today</h>
+  </div>
+  <hr id="breakLine" />
+  <div id="teamWarLink">
+    <h3><%= link_to "Team Data Information", teams_path %></h3>
+  </div>
+  <div id="appInfo">
+    <p>
+      <b>How this works:</b><br/> The predicted winners are based on regularly updated team WAR totals and the
+      difference between each team's total WAR. <br/>The larger the difference in total WAR between the
+      two teams playing, the greater the percent chance one team has of winning.<br/>
+      The specific percent chance of winning is based on the absolute difference in total WAR between each team.<br/>
+      Current Accuracy rate is 87.5% of games predicted correctly.
+      <br/><b><em>Use at own risk.</em></b>
+    </p>
+  </div>
+  <footer id='scorepredictorFooter'>
+  <p>
+    <b>Baseball Score Predictor Created By <a href="http://www.nathanstuart01.com">
+  Nathan Stuart</a></b><br/>
+  </p>
+
+  <img src=app/assets/images/mlblogo.jpg alt="Smiley face" height="42" width="42">
+</footer>
+</body>
+
+<% else %>
+
 <body id="gamesIndex">
   <h2 id="indexHeading">Today's MLB Game Predictions</h2>
   <div id="gameInformation2">
@@ -41,3 +73,5 @@
   <img src=app/assets/images/mlblogo.jpg alt="Smiley face" height="42" width="42">
 </footer>
 </body>
+
+<% end %>
