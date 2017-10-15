@@ -1,7 +1,7 @@
 <%= javascript_include_tag "scorepredictor" %>
 <%= stylesheet_link_tag "teamstyles" %>
 <head>
-    <title>  <%= image_tag("mlblogo.jpg", width: "10px") %></title>
+  <title>Baseball Score Predictor</title>
 </head>
 
 <% if @games.length == 0 %>
@@ -20,17 +20,17 @@
       difference between each team's total WAR. <br/>The larger the difference in total WAR between the
       two teams playing, the greater the percent chance one team has of winning.<br/>
       The specific percent chance of winning is based on the absolute difference in total WAR between each team.<br/>
-      Current Accuracy rate is 87.5% of games predicted correctly.
+      Current Accuracy rate is 68% of games predicted correctly.
       <br/><b><em>Use at own risk.</em></b>
     </p>
   </div>
   <footer id='scorepredictorFooter'>
-  <p>
+    <div id="mlbLogo"><%= image_tag("mlblogo.png", height: '40', width: '40', alt: 'MLB Logo') %></div>
+    <p id="footerId">
     <b>Baseball Score Predictor Created By <a href="http://www.nathanstuart01.com">
   Nathan Stuart</a></b><br/>
   </p>
 
-  <img src=app/assets/images/mlblogo.jpg alt="Smiley face" height="42" width="42">
 </footer>
 </body>
 
@@ -60,17 +60,16 @@
       difference between each team's total WAR. <br/>The larger the difference in total WAR between the
       two teams playing, the greater the percent chance one team has of winning.<br/>
       The specific percent chance of winning is based on the absolute difference in total WAR between each team.<br/>
-      Current Accuracy rate is 87.5% of games predicted correctly.
+      Current Accuracy rate is 68% of games predicted correctly.
       <br/><b><em>Use at own risk.</em></b>
     </p>
   </div>
   <footer id='scorepredictorFooter'>
-  <p>
+  <div id="mlbLogo"><%= image_tag("mlblogo.png", height: '40', width: '40', alt: 'MLB Logo') %></div>
+  <p id="footerId">
     <b>Baseball Score Predictor Created By <a href="http://www.nathanstuart01.com">
   Nathan Stuart</a></b><br/>
-  </p>
-
-  <img src=app/assets/images/mlblogo.jpg alt="Smiley face" height="42" width="42">
+</p>
 </footer>
 </body>
 

@@ -11,6 +11,16 @@
   font-family: sans-serif;
 }
 
+#mlbLogo {
+  display: inline-block;
+  padding-right: 10px;
+}
+
+#footerId {
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
 #gameInformation2 {
   display: inline-block;
   margin-top: 10px;
