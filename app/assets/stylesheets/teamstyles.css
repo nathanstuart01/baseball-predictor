@@ -3,7 +3,7 @@
   color: black;
 }
 
-#noGameAnnouncement {
+.noGameAnnouncement {
   display: inline-block;
   margin-top: 10px;
   margin-right: 10px;
@@ -11,12 +11,12 @@
   font-family: sans-serif;
 }
 
-#mlbLogo {
+.mlbLogo {
   display: inline-block;
   padding-right: 10px;
 }
 
-#footerId {
+.footerId {
   display: inline-block;
   padding-bottom: 10px;
 }
@@ -59,21 +59,19 @@
   color: black;
 }
 
-
-
-#gamesIndex {
+.gamesIndex {
   border: 10px solid #5259e9;
   border-style: ridge;
   background: #fff9ed;
 }
 
-#teamWarLink {
+.teamWarLink {
 margin-left: 40%;
 margin-top: 20px;
 font-family: sans-serif;
 }
 
-#appInfo {
+.appInfo {
 margin-left: 150px;
 margin-right: 150px;
 margin-top: 20px;
@@ -86,16 +84,16 @@ br {
   margin: 5px;
 }
 
-#breakLine {
+.breakLine {
   margin: 20px;
 }
 
-#indexHeading {
+.indexHeading {
     font-family: sans-serif;
     margin-left: 35%;
 }
 
-#scorepredictorFooter {
+.scorepredictorFooter {
   margin-left: 35%;
   font-family: sans-serif;
 }

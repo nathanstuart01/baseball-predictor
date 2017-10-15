@@ -5,13 +5,13 @@
 </head>
 
 <% if @games.length == 0 %>
-<body id="gamesIndex">
-  <h2 id="indexHeading">Today's MLB Game Predictions</h2>
-  <div id="noGameAnnouncement">
+<body class="gamesIndex">
+  <h2 class="indexHeading">Today's MLB Game Predictions</h2>
+  <div class="noGameAnnouncement">
     <h3>There are no scheduled games today</h>
   </div>
-  <hr id="breakLine" />
-  <div id="teamWarLink">
+  <hr class="breakLine" />
+  <div class="teamWarLink">
     <h3><%= link_to "Team Data Information", teams_path %></h3>
   </div>
   <div id="appInfo">
@@ -24,9 +24,9 @@
       <br/><b><em>Use at own risk.</em></b>
     </p>
   </div>
-  <footer id='scorepredictorFooter'>
-    <div id="mlbLogo"><%= image_tag("mlblogo.png", height: '40', width: '40', alt: 'MLB Logo') %></div>
-    <p id="footerId">
+  <footer class='scorepredictorFooter'>
+    <div class="mlbLogo"><%= image_tag("mlblogo.png", height: '50', width: '50', alt: 'MLB Logo') %></div>
+    <p class="footerId">
     <b>Baseball Score Predictor Created By <a href="http://www.nathanstuart01.com">
   Nathan Stuart</a></b><br/>
   </p>
@@ -36,8 +36,8 @@
 
 <% else %>
 
-<body id="gamesIndex">
-  <h2 id="indexHeading">Today's MLB Game Predictions</h2>
+<body class="gamesIndex">
+  <h2 class="indexHeading">Today's MLB Game Predictions</h2>
   <div id="gameInformation2">
     <h3>Teams Playing</h3>
   </div>
@@ -50,11 +50,11 @@
   <div id="percentChanceWinner2">
     <h3 id="percentChanceWinner2Heading">Chance of Winning</h3>
   </div>
-  <hr id="breakLine" />
-  <div id="teamWarLink">
+  <hr class="breakLine" />
+  <div class="teamWarLink">
     <h3><%= link_to "Team Data Information", teams_path %></h3>
   </div>
-  <div id="appInfo">
+  <div class="appInfo">
     <p>
       <b>How this works:</b><br/> The predicted winners are based on regularly updated team WAR totals and the
       difference between each team's total WAR. <br/>The larger the difference in total WAR between the
@@ -64,9 +64,9 @@
       <br/><b><em>Use at own risk.</em></b>
     </p>
   </div>
-  <footer id='scorepredictorFooter'>
-  <div id="mlbLogo"><%= image_tag("mlblogo.png", height: '40', width: '40', alt: 'MLB Logo') %></div>
-  <p id="footerId">
+  <footer class='scorepredictorFooter'>
+  <div class="mlbLogo"><%= image_tag("mlblogo.png", height: '50', width: '50', alt: 'MLB Logo') %></div>
+  <p class="footerId">
     <b>Baseball Score Predictor Created By <a href="http://www.nathanstuart01.com">
   Nathan Stuart</a></b><br/>
 </p>
