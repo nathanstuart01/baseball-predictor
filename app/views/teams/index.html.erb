@@ -3,26 +3,37 @@
   <title>Team WAR Data</title>
 </head>
 <body class="gamesIndex">
-  <h1>Team WAR Stats</h1>
-  <h3>Search for Team: </h3>
+  <h1 id="dataHeading">Team WAR Stats</h1>
+  <hr class="breakLine" />
+  <h3 id="searchHeading">Search for Team WAR Data: </h3>
 
-<%= form_tag(teams_path, method: :get) do %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag 'Search', name: nil %>
-  <button><%= link_to 'Reset', teams_path, id: 'reset-btn' %></button>
-<% end %>
+<div id="searchInput">
+  <%= form_tag(teams_path, method: :get) do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag 'Search', name: nil %>
+      <button><%= link_to 'Reset', teams_path, id: 'reset-btn' %></button>
+  <% end %>
+</div>
 
 <div id="gameInformation2">
     <% @teams.each do |team| %>
-    <ul>
-      <li><b><%= team.name %></b> </li>
+    <table>
+      <tr>
+        <th>Team Name</th>
+        <th>Team Batting War</th>
+        <th>Team Pitching War</th>
+        <th>Total Team War</th>
+      </tr>
+      <tr>
+        <td><b><%= team.name %></b></td>
       <br />
-      <li>Team Batting War: <%= team.batting_stat ? team.batting_stat.batting_war : 'Loading...' %> </li>
+      <td><%= team.batting_stat ? team.batting_stat.batting_war : 'Loading...' %> </td>
       <br />
-      <li>Team Pitching War: <%= team.pitching_stat ? team.pitching_stat.pitching_war : 'Loading...' %> </li>
+      <td><%= team.pitching_stat ? team.pitching_stat.pitching_war : 'Loading...' %> </td>
       <br />
-      <li>Total Team War: <%= team.total_war ? team.total_war : 'Loading...' %> </li>
-    </ul>
+      <td><%= team.total_war ? team.total_war : 'Loading...' %> </td>
+      </tr>
+    </table>
 <% end %>
 </div>
 
