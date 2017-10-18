@@ -11,6 +11,14 @@
   font-family: sans-serif;
 }
 
+#badSearch {
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10%;
+  font-family: sans-serif;
+}
+
 .mlbLogo {
   display: inline-block;
   padding-right: 10px;
@@ -21,11 +29,11 @@
   padding-bottom: 10px;
 }
 
-#gameInformation2 {
+.gameInformation2 {
   display: inline-block;
   margin-top: 10px;
   margin-right: 10px;
-  margin-left: 150px;
+  margin-left: 300px;
   font-family: sans-serif;
 }
 
@@ -112,4 +120,30 @@ br {
 .scorepredictorFooter {
   margin-left: 35%;
   font-family: sans-serif;
+}
+
+
+table {
+  width: 100%;
+  border: 1px solid #000;
+}
+
+th, td {
+  width: 25%;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid #000;
+  border-collapse: collapse;
+  padding: 0.3em;
+  caption-side: bottom;
+}
+
+caption {
+  padding: 0.3em;
+  color: #fff;
+  background: #000;
+}
+
+th {
+  background: #eee;
 }
