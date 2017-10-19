@@ -40,9 +40,20 @@
   display: inline-block;
   margin-top: 10px;
   margin-right: 10px;
-  margin-left: 270px;
+  margin-left: 25%;
   font-family: sans-serif;
 }
+
+@media screen and (max-width: 1025px) {
+  .gameInformation2 {
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 12%;
+    font-family: sans-serif;
+  }
+}
+
 
 #firstPitchInformation2 {
   display: inline-block;
@@ -78,6 +89,17 @@
   border: 10px solid #5259e9;
   border-style: ridge;
   background: #fff9ed;
+}
+
+@media screen and (max-width: 1025px and max-height: 1050px) {
+  .gamesIndex {
+    border: 10px solid #5259e9;
+    border-style: ridge;
+    background: #fff9ed;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+  }
 }
 
 .teamWarLink {
