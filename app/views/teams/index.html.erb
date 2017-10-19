@@ -34,21 +34,15 @@
 <% end %>
 </div>
 
-  <div class="gameInformation2">
+
     <% if @teams.blank? %>
-    <table>
-      <tr>
-        <th>Team Name</th>
-        <th>Team Batting War</th>
-        <th>Team Pitching War</th>
-        <th>Total Team War</th>
-      </tr>
-      <tr>
-        <td><b>There are no teams containing the term <em><%= params[:search] %></em>, please try again</b></td>
-      </tr>
-    </table>
+        <h4 class="badSearch">There are no teams containing:
+          <b><em><%= params[:search] %></em></b>
+          Please try your search again
+        </h4>
+
       <% end %>
-  </div>
+
 
   <hr class="breakLine" />
 
