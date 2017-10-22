@@ -21,11 +21,28 @@
 .mlbLogo {
   display: inline-block;
   padding-right: 10px;
+  margin-left: 30%;
+}
+
+@media screen and (max-width: 650px) {
+  .mlbLogo {
+    display: inline-block;
+    padding-right: 10px;
+    margin-left: 30%;
+  }
 }
 
 .footerId {
   display: inline-block;
   padding-bottom: 10px;
+}
+
+@media screen and (max-width: 650px) {
+  .footerId {
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-left: 30%;
+  }
 }
 
 #gameInformation2 {
@@ -36,11 +53,20 @@
   font-family: sans-serif;
 }
 
+@media only screen and (max-width: 650px) {
+  #gameInformation2 {
+      margin-left: 2%;
+      font-family: sans-serif;
+      display: inline-block;
+      font-size: 6px;
+  }
+}
+
 .gameInformation2 {
   display: inline-block;
   margin-top: 10px;
   margin-right: 10px;
-  margin-left: 25%;
+  margin-left: 20%;
   font-family: sans-serif;
 }
 
@@ -57,8 +83,17 @@
 
 #firstPitchInformation2 {
   display: inline-block;
-  margin-right: 10px;
+  margin-left: 5%;
   font-family: sans-serif;
+}
+
+@media only screen and (max-width: 650px) {
+  #firstPitchInformation2 {
+      display: inline-block;
+      font-family: sans-serif;
+      font-size: 6px;
+      margin-left: 1%;
+  }
 }
 
 #predictedWinner2 {
@@ -66,6 +101,16 @@
   margin-right: 10px;
   font-family: sans-serif;
   color: red;
+}
+
+@media only screen and (max-width: 650px) {
+  #predictedWinner2 {
+      font-size: 6px;
+      margin-left: 1%;
+      font-family: sans-serif;
+      display: inline-block;
+      color: red;
+  }
 }
 
 #predictedWinner2Heading {
@@ -80,6 +125,17 @@
   color: red;
 }
 
+@media only screen and (max-width: 650px) {
+  #percentChanceWinner2 {
+      display: inline-block;
+      margin-left: 5%;
+      font-family: sans-serif;
+      color: red;
+      font-size: 6px;
+      margin-left: 1%;
+  }
+}
+
 #percentChanceWinner2Heading {
   font-family: sans-serif;
   color: black;
@@ -89,17 +145,8 @@
   border: 10px solid #5259e9;
   border-style: ridge;
   background: #fff9ed;
-}
-
-@media screen and (max-width: 1025px and max-height: 1050px) {
-  .gamesIndex {
-    border: 10px solid #5259e9;
-    border-style: ridge;
-    background: #fff9ed;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-  }
+  box-sizing: border-box;
+  min-height: 100vh;
 }
 
 .teamWarLink {
@@ -108,11 +155,36 @@ margin-top: 20px;
 font-family: sans-serif;
 }
 
+#teamWarLink {
+margin-left: 40%;
+margin-top: 20px;
+font-family: sans-serif;
+}
+
+@media only screen and (max-width: 650px) {
+  #teamWarLink {
+  margin-left: 10%;
+  margin-top: 20px;
+  font-family: sans-serif;
+  }
+}
+
 .appInfo {
 margin-left: 150px;
 margin-right: 150px;
 margin-top: 20px;
 font-family: sans-serif;
+}
+
+@media only screen and (max-width: 650px) {
+  .appInfo {
+    margin-left: -10%;
+    margin-right: 150px;
+    margin-top: 20px;
+    font-family: sans-serif;
+    width: 50px;
+    overflow: scroll;
+  }
 }
 
 br {
@@ -125,14 +197,28 @@ br {
   margin: 20px;
 }
 
-.indexHeading {
+#indexHeading {
     font-family: sans-serif;
     margin-left: 35%;
+}
+
+@media only screen and (max-width: 650px) {
+  #indexHeading {
+      margin-left: 20%;
+      font-family: sans-serif;
+  }
 }
 
 #dataHeading {
     font-family: sans-serif;
     margin-left: 40%;
+}
+
+@media only screen and (max-width: 650px) {
+  #dataHeading {
+    font-family: sans-serif;
+    margin-left: 20%;
+  }
 }
 
 #searchHeading {
@@ -141,19 +227,53 @@ br {
     margin-left: 40%;
 }
 
+@media only screen and (max-width: 650px) {
+  #searchHeading {
+    padding-top: 20px;
+    font-family: sans-serif;
+    margin-left: 20%;
+  }
+}
+
 #searchInput {
     font-family: sans-serif;
     margin-left: 40%;
 }
 
+@media only screen and (max-width: 650px) {
+  #searchInput {
+    font-family: sans-serif;
+    margin-left: 20%;
+  }
+}
+
 .scorepredictorFooter {
-  margin-left: 35%;
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-top: 20px;
   font-family: sans-serif;
+}
+
+@media only screen and (max-width: 650px) {
+  .scorepredictorFooter {
+    margin-left: 20%;
+    margin-right: 150px;
+    margin-top: 20px;
+    font-family: sans-serif;
+  }
 }
 
 table {
   width: 100%;
   border: 1px solid #000;
+}
+
+@media only screen and (max-width: 650px) {
+  table {
+    width: 100%;
+    border: 1px solid #000;
+    margin-left: -15px;
+  }
 }
 
 #noSearchTable {
