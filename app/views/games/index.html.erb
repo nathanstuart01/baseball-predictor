@@ -9,14 +9,13 @@
 <body class="gamesIndex">
   <h2 class="indexHeading">Today's MLB Game Predictions</h2>
   <div class="noGameAnnouncement">
-    <h3>There are no scheduled games today</h>
+    <h3 id="noGameHeading"><b>There are no scheduled games today</b></h3>
   </div>
 
   <hr class="breakLine" />
 
-  <div class="teamWarLink">
-    <h3><%= link_to "Team Data Information", teams_path %></h3>
-  </div>
+
+    <h3 class="teamDataLink1"><%= link_to "Team Data Information", teams_path %></h3>
 
     <footer class='scorepredictorFooter'>
       <p>
@@ -58,9 +57,9 @@
 
   <hr class="breakLine" />
 
-  <div id="teamWarLink">
-    <h3><%= link_to "Team Data Information", teams_path %></h3>
-  </div>
+
+    <h3 class="teamDataLink1"><%= link_to "Team Data Information", teams_path %></h3>
+
 
   <footer class='scorepredictorFooter'>
     <p>
