@@ -12,6 +12,7 @@ module BaseballScorePredictor
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.time_zone = 'Mountain Time (US & Canada)'
+    config.assets.initialize_on_precompile = false
 
   end
 end
