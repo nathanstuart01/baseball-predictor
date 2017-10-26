@@ -106,7 +106,8 @@
 
 #firstPitchInformation2 {
   display: inline-block;
-  margin-left: 5%;
+  margin-right: 2%;
+  margin-left: 2%;
   font-family: sans-serif;
 }
 
@@ -130,7 +131,7 @@
 
 #predictedWinner2 {
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 2%;
   font-family: sans-serif;
   color: red;
 }
