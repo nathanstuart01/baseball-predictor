@@ -4,7 +4,7 @@ namespace :update_game_info do
   task update_game_info_in_db: :environment do
 
     require 'httparty'
-    require 'JSON'
+    require 'json'
 
     @raw_games_data = HTTParty.get("https://statsapi.mlb.com/api/v1/schedule?sportId=1")
 
