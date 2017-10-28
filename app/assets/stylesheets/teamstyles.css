@@ -164,7 +164,7 @@
 #percentChanceWinner2 {
   display: inline-block;
   font-family: sans-serif;
-  color: red;
+  color: green;
 }
 
 @media only screen and (max-width: 650px) {
