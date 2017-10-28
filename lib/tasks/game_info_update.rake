@@ -3,7 +3,7 @@ namespace :update_game_info do
   desc "Get and Update Game Team, Time, Date Info and Saveto DB"
   task update_game_info_in_db: :environment do
 
-    require 'HTTParty'
+    require 'httparty'
     require 'JSON'
 
     @raw_games_data = HTTParty.get("https://statsapi.mlb.com/api/v1/schedule?sportId=1")
@@ -23,7 +23,7 @@ namespace :update_game_info do
 
       i += 1
       z += 1
-      
+
     end
   end
 end
