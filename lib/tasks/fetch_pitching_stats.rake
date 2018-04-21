@@ -6,7 +6,7 @@ namespace :fetch_pitching_stats do
     require 'open-uri'
     require 'nokogiri'
 
-    pitching_url = "http://www.fangraphs.com/leaders.aspx?pos=all&stats=pit&lg=all&qual=0&type=8&season=2017&month=0&season1=2017&ind=0&team=0,ts&rost=0&age=0&filter=&players=0"
+    pitching_url = "https://www.fangraphs.com/leaders.aspx?pos=all&stats=pit&lg=all&qual=0&type=8&season=2018&month=0&season1=2018&ind=0&team=0,ts&rost=0&age=0&filter=&players=0"
     pitching_document = open(pitching_url)
     pitching_content =  pitching_document.read
     @parsed_pitching_content = Nokogiri::HTML(pitching_content)

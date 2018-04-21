@@ -6,7 +6,7 @@ namespace :fetch_batting_stats do
     require 'open-uri'
     require 'nokogiri'
 
-    url = "http://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=0&type=8&season=2017&month=0&season1=2017&ind=0&team=0,ts&rost=&age=&filter=&players=0"
+    url = "https://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=0&type=8&season=2018&month=0&season1=2018&ind=0&team=0,ts&rost=&age=&filter=&players=0"
     document = open(url)
     content =  document.read
     @parsed_content = Nokogiri::HTML(content)
